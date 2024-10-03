@@ -79,17 +79,17 @@ export default function FormPage() {
     return (
         <>
             <Navbar />
-        <div className='m-10 p-4'>
+        <div className='md:m-10 md:p-4 m-5 p-2'>
 
             <div className='md:text-center text-left  md:ms-32 md:text-2xl text-lg mt-10 md:mb-10'><p>Please fill out and submit the form below. Our representative will inform you about other requirements for
                 obtaining an loan policy:</p></div>
 
 
-            <h1 className='ms-1 md:ms-36 md:px-2 text-2xl md:text-4xl font-semibold mt-20'>All fields are Required</h1>
+            <h1 className='ms-1 md:ms-36 md:px-2 text-2xl md:text-4xl font-semibold md:mt-20 mt-10'>All fields are Required</h1>
 
 
             <form onSubmit={encrypt} >
-                <div className='flex justify-center items-center flex-row flex-wrap'>
+                <div className='flex justify-center items-center flex-row flex-wrap '>
 
                     <div className='text-3xl p-4 m-2 flex flex-col items-center md:items-start gap-2'>
                         <label htmlFor='name'>Your Full Name <span className='text-red-400 mt-2 text-4xl'>*</span></label>
@@ -138,7 +138,7 @@ export default function FormPage() {
                             id="options"
                             value={ownerShip}
                             onChange={handleChange}
-                            className="border border-gray-300 p-2 text-3xl ps-2 py-4 md:me-10 md:px-[190px] px-32 rounded-lg bg-slate-100"
+                            className="border border-gray-300 p-2 text-3xl ps-2 py-4 md:me-10 md:px-[190px] px-32 rounded-lg bg-slate-100 w-80 md:w-auto"
                         >
                             <option value="1">less than 1 year</option>
                             <option value="2">2 years</option>
@@ -159,7 +159,7 @@ export default function FormPage() {
                             id="options"
                             value={buisness}
                             onChange={handlebuisness}
-                            className="border border-gray-300 p-2 text-4xl ps-2 py-4 me-10 px-40 md:px-[205px] pe-50 rounded-lg bg-slate-100 "
+                            className="border border-gray-300 p-2 text-4xl ps-2 py-4 me-10 px-40 md:px-[205px] pe-50 rounded-lg bg-slate-100 w-80 md:w-auto"
                         >
                             <option value="audio">auto</option>
                             <option value="Beauty">Beauty</option>

@@ -9,7 +9,7 @@ export default function HeroSection() {
     const navigate = useNavigate()
     return (
         < >
-            <div className='w-full flex justify-center md:justify-evenly items-center gap-3 flex-wrap md:flex-nowrap mt-[-20px] '>
+            <div className='w-full flex justify-center md:justify-evenly items-center gap-3 flex-wrap md:flex-nowrap mt-[-20px] mb-10 md:mb-0'>
 
 
                 {/* Div for Content */}
@@ -54,6 +54,8 @@ export default function HeroSection() {
                 {/* Div for Form  Ends Here*/}
 
 
+                <div className='self-start ms-2 min-h-1 mt-32 min-w-80 md:min-w-96 bar rounded-full md:hidden block'></div>    
+                
             </div>
 
             {/* Cards */}
