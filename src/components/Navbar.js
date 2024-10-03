@@ -1,42 +1,16 @@
 import React from 'react'
-import { FaPhone,FaFacebook,FaQuestionCircle  } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
-import { FaTwitter } from "react-icons/fa";
-import { RiDrinks2Fill } from "react-icons/ri";
+import { FaPhone} from "react-icons/fa";
 import { Link } from 'react-router-dom'
+import TopNav from './TopNav';
+
 
 
 export default function Navbar() {
   return (
     <>
-      <div className='w-full h-10 md:flex hidden justify-between px-52 items-center bg-black text-white'>
-
-        <div className='flex justify-center items-center gap-5'>
-          <div className='text-2xl text-[#36a05b] '><MdEmail/></div>
-          <p className='text-slate-200 hover:text-[#006738]'> info@bizcashandcapital.com</p>
-        </div>
-
-
-
-        <div>
-          <ul className='flex justify-center items-center gap-4 list-none text-md'>
-            <li className='text-slate-200 hover:text-[#006738]'>Terms And condition</li>
-            <li className='text-slate-200 hover:text-[#006738]'>privacy</li>
-            <li className='text-slate-200 hover:text-[#006738]'>About</li>
-            <li className='text-slate-200 hover:text-[#006738]'><FaTwitter/></li>
-            <li className='text-slate-200 hover:text-[#006738]'><FaFacebook/></li>
-            <li className='text-slate-200 hover:text-[#006738]'><FaQuestionCircle/></li>
-            <li className='text-slate-200 hover:text-[#006738]'><RiDrinks2Fill/></li>
-          
-          </ul>
-
-        </div>
-
-
-
-      </div>
-
-      <div className='flex md:justify-center justify-between md:px-0 px-10 items-center gap-10 w-full h-20'>
+    
+      <TopNav/>
+      <div className='flex md:justify-center justify-between md:px-0 px-6 items-center gap-10 w-full h-20'>
         <div className='cursor-pointer'><Link to="/form" ><h2 className='p-3 px- cursor-pointer'> LOGO</h2></Link></div>
         <div className='md:flex hidden justify-center items-center gap-1 bg-slate-100 rounded-lg text-xl'>
           <Link to="/" ><h2 className='p-3 px- cursor-pointer'>Loan Program</h2></Link>

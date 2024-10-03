@@ -2,21 +2,24 @@ import React from 'react'
 import Form from '../components/Form'
 import "../App.css"
 import Cards from '../components/cards'
-
+import { useNavigate } from 'react-router-dom'
 
 
 export default function HeroSection() {
+    const navigate = useNavigate()
     return (
         < >
-            <div  className='w-full flex justify-center md:justify-evenly items-center gap-3 flex-wrap md:flex-nowrap mt-[-20px] '>
+            <div className='w-full flex justify-center md:justify-evenly items-center gap-3 flex-wrap md:flex-nowrap mt-[-20px] '>
 
 
                 {/* Div for Content */}
                 <div className='flex justify-center md:justify-start items-center self-center  md:self-start flex-col gap-5 mt-[-50px] md:mt-2 p-3 md:p-0'>
 
-                    <div className='self-start ms-4 md:ms-2 min-h-4 mt-32 min-w-80 md:min-w-96 bar rounded-full'></div>
 
-                    <div className='me-10 md:me-0 '>
+                    {/* Bar On heading */}
+                    <div className='self-start ms-2 min-h-4 mt-32 min-w-80 md:min-w-96 bar rounded-full'></div>
+
+                    <div className='me-2 md:me-0 '>
                         <h1 className='text-4xl md:text-[80px] leading-none font-medium'>
                             Best <span className='text-[#006738] font-bold'>Business Loan <br /></span>for Low Credit Score
                         </h1>
@@ -30,7 +33,11 @@ export default function HeroSection() {
                         </p>
                     </div>
 
-                    <button className='ms-3 md:ms-2 mt-5 md:mt-10 self-start bg-[#006738] text-[#FFFFFF] p-5 px-8 rounded-md text-xl font-bold hover:bg-[#04200E] transition-all duration-300 cursor-pointer'>Let's Get Started</button>
+                    <button 
+                    onClick={()=>{
+                        navigate("/form")
+                    }}
+                    className='ms-2 mt-5 md:mt-10 self-start bg-[#006738] text-[#FFFFFF] p-4 px-6 md:p-5 md:px-8 rounded-md text-xl font-bold hover:bg-[#04200E] transition-all duration-300 cursor-pointer'>Let's Get Started</button>
                 </div>
                 {/* Div for Content  Ends Here*/}
 
@@ -50,7 +57,7 @@ export default function HeroSection() {
             </div>
 
             {/* Cards */}
-            <Cards/>
+            <Cards />
         </>
     )
 }
