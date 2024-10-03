@@ -1,11 +1,17 @@
-.App {
-  text-align: center;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%; /* Ensures the page takes at least full viewport height */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  display: flex;
+  flex-direction: column;
+  overflow: auto; /* This allows scrolling if content overflows */
+  height: auto;
 }
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

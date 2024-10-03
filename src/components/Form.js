@@ -52,7 +52,7 @@ export default function Form() {
                 <textarea value={message} onChange={(e)=> setMessage(e.target.value)}  rows="5" cols="17" className=' p-3  md:px-1 mx-3 md:mx-0 rounded-lg bg-slate-100'  id="message" name='message' placeholder='Enter text here...' required></textarea>
             </div>
 
-            <button className='bg-[#006738] text-[#FFFFFF] p-4 px-20 rounded-xl text-xl font-bold hover:bg-[#04200E] transition-all duration-300 ms-24 cursor-pointer' type="submit" value="Send">Submit</button>
+            <button className='bg-[#006738] text-[#FFFFFF] p-4 px-20 rounded-xl text-xl font-bold hover:bg-[#04200E] transition-all duration-300 ms-24 md:ms-20 cursor-pointer' type="submit" value="Send">Submit</button>
         </form>
     )
 }
