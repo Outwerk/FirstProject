@@ -93,38 +93,38 @@ export default function FormPage() {
 
                     <div className='text-3xl p-4 m-2 flex flex-col items-center md:items-start gap-2'>
                         <label htmlFor='name'>Your Full Name <span className='text-red-400 mt-2 text-4xl'>*</span></label>
-                        <input value={fullName} onChange={(e) => setFullName(e.target.value)} className='ps-2 py-3 mx-3 md:py-5  md:px-32   rounded-lg bg-slate-100 w-80 md:w-100' type='text' required />
+                        <input value={fullName} onChange={(e) => setFullName(e.target.value)} className='ps-2 py-3 mx-3 md:mx-0 md:py-5  md:px-32   rounded-lg bg-slate-100 w-80 md:w-auto' type='text' required />
                     </div>
 
 
                     <div className='text-3xl p-4 m-2 flex flex-col items-center md:items-start gap-2'>
                         <label htmlFor='name'>Email:<span className='text-red-400 mt-2 text-4xl'>*</span></label>
-                        <input value={email} onChange={(e) => setEmail(e.target.value)} className='ps-2 py-3 mx-3 md:py-5 md:px-32  rounded-lg bg-slate-100 w-80 md:w-100' type='email' required />
+                        <input value={email} onChange={(e) => setEmail(e.target.value)} className='ps-2 py-3 mx-3 md:mx-0 md:py-5 md:px-32  rounded-lg bg-slate-100 w-80 md:w-auto' type='email' required />
                     </div>
 
 
                     <div className='text-3xl p-4 m-2 flex flex-col items-center md:items-start gap-2'>
                         <label htmlFor='name'>
                             Business Name: <span className='text-red-400 mt-2 text-4xl'>*</span></label>
-                        <input value={buisnessName} onChange={(e) => setBuisnessName(e.target.value)} className='ps-2 py-3 mx-3 md:py-5 md:px-32  rounded-lg bg-slate-100 w-80 md:w-100' type='text' required />
+                        <input value={buisnessName} onChange={(e) => setBuisnessName(e.target.value)} className='ps-2 py-3 mx-3 md:mx-0 md:py-5 md:px-32  rounded-lg bg-slate-100 w-80 md:w-auto' type='text' required />
                     </div>
 
 
                     <div className='text-3xl p-4 m-2 flex flex-col items-center md:items-start gap-2'>
                         <label htmlFor='name'>Business Phone:<span className='text-red-400 mt-2 text-4xl'>*</span></label>
-                        <input value={buisnessPhone} onChange={(e) => setBuisnessPhone(e.target.value)} className='ps-2 py-3 mx-3 md:py-5 md:px-32  rounded-lg bg-slate-100 w-80 md:w-100' type='text' required />
+                        <input value={buisnessPhone} onChange={(e) => setBuisnessPhone(e.target.value)} className='ps-2 py-3 mx-3 md:mx-0 md:py-5 md:px-32  rounded-lg bg-slate-100 w-80 md:w-auto' type='text' required />
                     </div>
 
 
                     <div className='text-3xl p-4 m-2 flex flex-col items-center md:items-start gap-2'>
                         <label htmlFor='name'>Amount Requested:<span className='text-red-400 mt-2 text-4xl'>*</span></label>
-                        <input value={amountRequested} onChange={(e) => setAmountRequested(e.target.value)} className='ps-2 py-3 mx-3 md:py-5 md:px-32  rounded-lg bg-slate-100 w-80 md:w-100' type='text' required />
+                        <input value={amountRequested} onChange={(e) => setAmountRequested(e.target.value)} className='ps-2 py-3 mx-3 md:mx-0 md:py-5 md:px-32  rounded-lg bg-slate-100 w-80 md:w-auto' type='text' required />
                     </div>
 
 
                     <div className='text-3xl p-4 m-2 flex flex-col items-center md:items-start gap-2'>
                         <label htmlFor='name'>Contact No:<span className='text-red-400 mt-2 text-4xl'>*</span></label>
-                        <input value={contactNo} onChange={(e) => setContactNo(e.target.value)} className='ps-2 py-3 mx-3 md:py-5 md:px-32  rounded-lg bg-slate-100 w-80 md:w-100' type='text' required />
+                        <input value={contactNo} onChange={(e) => setContactNo(e.target.value)} className='ps-2 py-3 mx-3 md:mx-0 md:py-5 md:px-32  rounded-lg bg-slate-100 w-80 md:w-auto' type='text' required />
                     </div>
 
 
