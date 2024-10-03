@@ -19,7 +19,7 @@ export default function HeroSection() {
                     {/* Bar On heading */}
                     <div className='self-start ms-2 min-h-4 mt-32 min-w-80 md:min-w-96 bar rounded-full'></div>
 
-                    <div className=''>
+                    <div className='me-3 md:me-0 '>
                         <h1 className='text-4xl md:text-[80px] leading-none font-medium'>
                             Best <span className='text-[#006738] font-bold'>Business Loan <br /></span>for Low Credit Score
                         </h1>
