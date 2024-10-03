@@ -81,11 +81,11 @@ export default function FormPage() {
             <Navbar />
         <div className='m-10 p-4'>
 
-            <div className='text-center  md:ms-32 md:text-2xl text-xl mt-10 md:mb-10'><p>Please fill out and submit the form below. Our representative will inform you about other requirements for
+            <div className='md:text-center text-left  md:ms-32 md:text-2xl text-lg mt-10 md:mb-10'><p>Please fill out and submit the form below. Our representative will inform you about other requirements for
                 obtaining an loan policy:</p></div>
 
 
-            <h1 className='ms-1 md:ms-36 md:px-2 text-3xl md:text-4xl font-semibold mt-20'>All fields are Required</h1>
+            <h1 className='ms-1 md:ms-36 md:px-2 text-2xl md:text-4xl font-semibold mt-20'>All fields are Required</h1>
 
 
             <form onSubmit={encrypt} >
@@ -93,38 +93,38 @@ export default function FormPage() {
 
                     <div className='text-3xl p-4 m-2 flex flex-col items-center md:items-start gap-2'>
                         <label htmlFor='name'>Your Full Name <span className='text-red-400 mt-2 text-4xl'>*</span></label>
-                        <input value={fullName} onChange={(e) => setFullName(e.target.value)} className='ps-2 py-3 mx-3 md:py-5  md:px-32   rounded-lg bg-slate-100' type='text' required />
+                        <input value={fullName} onChange={(e) => setFullName(e.target.value)} className='ps-2 py-3 mx-3 md:py-5  md:px-32   rounded-lg bg-slate-100 w-80 md:w-100' type='text' required />
                     </div>
 
 
                     <div className='text-3xl p-4 m-2 flex flex-col items-center md:items-start gap-2'>
                         <label htmlFor='name'>Email:<span className='text-red-400 mt-2 text-4xl'>*</span></label>
-                        <input value={email} onChange={(e) => setEmail(e.target.value)} className='ps-2 py-3 mx-3 md:py-5 md:px-32  rounded-lg bg-slate-100' type='email' required />
+                        <input value={email} onChange={(e) => setEmail(e.target.value)} className='ps-2 py-3 mx-3 md:py-5 md:px-32  rounded-lg bg-slate-100 w-80 md:w-100' type='email' required />
                     </div>
 
 
                     <div className='text-3xl p-4 m-2 flex flex-col items-center md:items-start gap-2'>
                         <label htmlFor='name'>
                             Business Name: <span className='text-red-400 mt-2 text-4xl'>*</span></label>
-                        <input value={buisnessName} onChange={(e) => setBuisnessName(e.target.value)} className='ps-2 py-3 mx-3 md:py-5 md:px-32  rounded-lg bg-slate-100' type='text' required />
+                        <input value={buisnessName} onChange={(e) => setBuisnessName(e.target.value)} className='ps-2 py-3 mx-3 md:py-5 md:px-32  rounded-lg bg-slate-100 w-80 md:w-100' type='text' required />
                     </div>
 
 
                     <div className='text-3xl p-4 m-2 flex flex-col items-center md:items-start gap-2'>
                         <label htmlFor='name'>Business Phone:<span className='text-red-400 mt-2 text-4xl'>*</span></label>
-                        <input value={buisnessPhone} onChange={(e) => setBuisnessPhone(e.target.value)} className='ps-2 py-3 mx-3 md:py-5 md:px-32  rounded-lg bg-slate-100' type='text' required />
+                        <input value={buisnessPhone} onChange={(e) => setBuisnessPhone(e.target.value)} className='ps-2 py-3 mx-3 md:py-5 md:px-32  rounded-lg bg-slate-100 w-80 md:w-100' type='text' required />
                     </div>
 
 
                     <div className='text-3xl p-4 m-2 flex flex-col items-center md:items-start gap-2'>
                         <label htmlFor='name'>Amount Requested:<span className='text-red-400 mt-2 text-4xl'>*</span></label>
-                        <input value={amountRequested} onChange={(e) => setAmountRequested(e.target.value)} className='ps-2 py-3 mx-3 md:py-5 md:px-32  rounded-lg bg-slate-100' type='text' required />
+                        <input value={amountRequested} onChange={(e) => setAmountRequested(e.target.value)} className='ps-2 py-3 mx-3 md:py-5 md:px-32  rounded-lg bg-slate-100 w-80 md:w-100' type='text' required />
                     </div>
 
 
                     <div className='text-3xl p-4 m-2 flex flex-col items-center md:items-start gap-2'>
                         <label htmlFor='name'>Contact No:<span className='text-red-400 mt-2 text-4xl'>*</span></label>
-                        <input value={contactNo} onChange={(e) => setContactNo(e.target.value)} className='ps-2 py-3 mx-3 md:py-5 md:px-32  rounded-lg bg-slate-100' type='text' required />
+                        <input value={contactNo} onChange={(e) => setContactNo(e.target.value)} className='ps-2 py-3 mx-3 md:py-5 md:px-32  rounded-lg bg-slate-100 w-80 md:w-100' type='text' required />
                     </div>
 
 
@@ -138,7 +138,7 @@ export default function FormPage() {
                             id="options"
                             value={ownerShip}
                             onChange={handleChange}
-                            className="border border-gray-300 p-2 text-3xl ps-2 py-3 mx-3 md:py-4 md:me-10 md:px-[190px] px-32 rounded-lg bg-slate-100"
+                            className="border border-gray-300 p-2 text-3xl ps-2 py-4 md:me-10 md:px-[190px] px-32 rounded-lg bg-slate-100"
                         >
                             <option value="1">less than 1 year</option>
                             <option value="2">2 years</option>
@@ -159,7 +159,7 @@ export default function FormPage() {
                             id="options"
                             value={buisness}
                             onChange={handlebuisness}
-                            className="border border-gray-300 p-2 text-4xl ps-2 py-3 mx-3 md:py-4 me-10 px-40 md:px-[205px] pe-50 rounded-lg bg-slate-100 "
+                            className="border border-gray-300 p-2 text-4xl ps-2 py-4 me-10 px-40 md:px-[205px] pe-50 rounded-lg bg-slate-100 "
                         >
                             <option value="audio">auto</option>
                             <option value="Beauty">Beauty</option>
