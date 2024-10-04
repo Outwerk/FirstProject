@@ -82,23 +82,23 @@ export default function HeroForm() {
         e.preventDefault();
         emailjs.sendForm('service_2ctpksq', 'template_s2u4eck', form.current, {
             publicKey: '_PPs8ZgMRarry37fH',
-          })
-          .then(
-            () => {
-              console.log('SUCCESS!');
-            //   console.log(form.current)
-                encrypt()
-            },
-            (error) => {
-              console.log('FAILED...', error.text);
-            },
-          );
-      };
+        })
+            .then(
+                () => {
+                    console.log('SUCCESS!');
+                    //   console.log(form.current)
+                    encrypt()
+                },
+                (error) => {
+                    console.log('FAILED...', error.text);
+                },
+            );
+    };
 
 
 
 
-    
+
 
 
     return (
@@ -247,7 +247,7 @@ export default function HeroForm() {
 
 
                         {/* type Of business */}
-                        <div className="col-span-6 sm:col-span-3">
+                        <div className="col-span-3 sm:col-span-3">
                             <label htmlFor="options" className="block text-sm font-medium text-gray-700 ">
                                 Type of Business:<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
