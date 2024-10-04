@@ -1,6 +1,6 @@
 
-import React, { useState } from 'react'
-
+import React, { useState, useRef } from 'react'
+import emailjs from '@emailjs/browser';
 import CryptoJS from 'crypto-js'
 
 export default function HeroForm() {
@@ -18,6 +18,7 @@ export default function HeroForm() {
 
     // Image And its Error if Need
     const [image, setImage] = useState(null);
+    const [file, setFile] = useState(null);
     const [error, setError] = useState('');
     const [fileKey, setFileKey] = useState(0);
 
@@ -35,7 +36,7 @@ export default function HeroForm() {
     // handle Input of image
     const handleImageChange = (event) => {
         const selectedFile = event.target.files[0];
-
+        const setFile = event.target.files[0];
         // Check if the selected file is an image
         if (selectedFile && selectedFile.type.startsWith('image/')) {
             setImage(URL.createObjectURL(selectedFile)); // Create a URL for the image
@@ -48,8 +49,8 @@ export default function HeroForm() {
 
 
     // Encrypting Data 
-    function encrypt(e) {
-        e.preventDefault()
+    function encrypt() {
+
         let secretKey = "Shahrukh123"
         let encryptedData = {
             fullName: CryptoJS.AES.encrypt(fullName, secretKey).toString(),
@@ -75,6 +76,30 @@ export default function HeroForm() {
         alert("Form Has been sent successfully!")
     }
 
+    const form = useRef()
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+        emailjs.sendForm('service_2ctpksq', 'template_s2u4eck', form.current, {
+            publicKey: '_PPs8ZgMRarry37fH',
+          })
+          .then(
+            () => {
+              console.log('SUCCESS!');
+            //   console.log(form.current)
+                encrypt()
+            },
+            (error) => {
+              console.log('FAILED...', error.text);
+            },
+          );
+      };
+
+
+
+
+    
+
 
     return (
         <div className=''>
@@ -82,7 +107,7 @@ export default function HeroForm() {
                 className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6"
             >
                 <div className="max-w-xl lg:max-w-3xl">
-                    <form onSubmit={encrypt} className="mt-8 grid grid-cols-6 gap-6">
+                    <form ref={form} onSubmit={sendEmail} className="mt-8 grid grid-cols-6 gap-6">
                         <div className="col-span-6 sm:col-span-3">
                             <label
                                 htmlFor="fullName"
@@ -124,7 +149,7 @@ export default function HeroForm() {
 
                         <div className="col-span-6 sm:col-span-3">
                             <label
-                                htmlFor="BusinessName"
+                                htmlFor="businessName"
                                 className="block text-sm font-medium text-gray-700 "
                             >
                                 Buisness Name<span className='text-red-600 mt-2 text-xl'>*</span>
@@ -134,8 +159,8 @@ export default function HeroForm() {
                                 value={buisnessName}
                                 onChange={(e) => setBuisnessName(e.target.value)}
                                 type="text"
-                                id="BusinessName"
-                                name="password"
+                                id="businessName"
+                                name="businessName"
                                 className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm  p-1"
                                 required
                             />
@@ -162,7 +187,7 @@ export default function HeroForm() {
 
                         <div className="col-span-6 sm:col-span-3">
                             <label
-                                htmlFor="AmountRequested"
+                                htmlFor="amountRequested"
                                 className="block text-sm font-medium text-gray-700 "
                             >
                                 Amount Requested<span className='text-red-600 mt-2 text-xl'>*</span>
@@ -172,8 +197,8 @@ export default function HeroForm() {
                                 value={amountRequested}
                                 onChange={(e) => setAmountRequested(e.target.value)}
                                 type="text"
-                                id="AmountRequested"
-                                name="businessPhone"
+                                id="amountRequested"
+                                name="amountRequested"
                                 className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
                                 required
                             />
@@ -192,7 +217,7 @@ export default function HeroForm() {
                                 onChange={(e) => setContactNo(e.target.value)}
                                 type="text"
                                 id="contactNo"
-                                name="businessPhone"
+                                name="contactNo"
                                 className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
                                 required
                             />
@@ -206,6 +231,7 @@ export default function HeroForm() {
                             <select
                                 id="options"
                                 value={ownerShip}
+                                name="ownerShip"
                                 onChange={handleChange}
                                 className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
                                 required
@@ -227,6 +253,7 @@ export default function HeroForm() {
                             </label>
                             <select
                                 id="options"
+                                name='typeOfBusiness'
                                 value={buisness}
                                 onChange={handlebuisness}
                                 className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1 "
@@ -248,6 +275,7 @@ export default function HeroForm() {
                             <input
                                 type="file"
                                 id="imageUpload"
+                                name="attachment"
                                 accept="image/*"
                                 key={fileKey}
                                 onChange={handleImageChange}
