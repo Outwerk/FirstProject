@@ -44,6 +44,8 @@ export default function HeroSection() {
                 </div>
                 {/* Div for Content  Ends Here*/}
 
+
+
                 {/* Div for Form */}
                 <div className='mt-16'>
                     <Form />
@@ -55,22 +57,7 @@ export default function HeroSection() {
                 <div className='self-start ms-2 min-h-1 mt-20 min-w-80 md:min-w-96 bar rounded-full md:hidden block'></div>
             </div>
 
-            {/* Cards */}
-            <div>
-                <Cards />
-            </div>
-
-            <div className='flex justify-center items-center h-auto mb-10'>
-                <div className='bar w-[90%] lg:w-[80%] flex justify-center items-center flex-col h-auto p-5 gap-4 text-[#FFFFFF] rounded-xl'>
-                    <p className='text-xl md:text-2xl font-semibold'>Get Free Apply Now</p>
-                    <p className='text-2xl md:text-3xl lg:text-4xl font-bold'>How Much Money Do you need ?</p>
-                    <input className='p-2 md:p-4 w-[90%] lg:w-[50%]  rounded-xl text-black text-2xl' placeholder='Enter Your Amount' />
-                    <button className='bg-[#006738] rounded-full p-3 lg:relative  bottom-[72px] left-64 z-50 hover:bg-[#04200E] transition-all duration-300 cursor-pointer0
-                px-4'>Apply Now</button>
-                </div>
-            </div>
-
-
+         
 
             <div className=' mx-auto flex justify-center items-center  md:flex-row flex-col md:ms-32 gap-2'>
                 <div className='flex-1 self-center'>
