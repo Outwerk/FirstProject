@@ -5,7 +5,7 @@ import HeroForm from '../components/HeroForm';
 export default function HeroSection() {
     return (
         < >
-            <div className='w-full flex justify-center sm:justify-start  md:justify-evenly items-center  flex-wrap md:flex-nowrap mt-[-38px] md:mt-[-20px] mb-10  md:mx-20 '>
+            <div className='w-full flex justify-center sm:justify-start  md:justify-center md:gap-2 items-center  flex-wrap md:flex-nowrap mt-[-38px] md:mt-[-40px] mb-10   '>
 
                 {/* Div for Content */}
                 <div className='flex justify-center md:justify-start items-center self-center md:self-start flex-col gap-5 mt-[-50px] md:mt-0 p-3 md:p-0 sm:ms-6 ms-2'>

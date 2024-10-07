@@ -45,7 +45,7 @@ export default function OurService() {
             <div className='lg:w-[80%] w-full flex justify-center items-center flex-col lg:mx-auto gap-3 '>
                 <h3 className='text-[#04200E] text-2xl font-bold self-start'>Our services</h3>
                 <h1 className='text-[#04200E] text-3xl md:text-4xl font-bold self-start font-serif'>We're covering all the loan fields</h1>
-                <p className='text-xl  lg:pe-16 mt-5'>We offer a variety of loan options to meet the diverse needs of small businesses. Our loans are designed to be fast and easy to obtain, with flexible repayment plans and competitive interest rates. Whether you need funds to cover operating expenses, purchase inventory, or invest in equipment, we have a loan solution that's right for you. </p>
+                <p className='text-xl  lg:pe-16 mt-5 '>We offer a variety of loan options to meet the diverse needs of small businesses. Our loans are designed to be fast and easy to obtain, with flexible repayment plans and competitive interest rates. Whether you need funds to cover operating expenses, purchase inventory, or invest in equipment, we have a loan solution that's right for you. </p>
 
                 {/* Cards */}
                 <div className="relative max-w-[340px] sm:max-w-3xl self-center bg-white shadow-2xl my-5  sm:p-6">
@@ -71,6 +71,7 @@ export default function OurService() {
                     </button>
                 </div>
             </div>
+
         </div>
     )
 }

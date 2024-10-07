@@ -117,11 +117,22 @@ export default function HeroForm() {
 
     return (
         <div className=''>
+
+
+
+
+
             <main
-                className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6"
+                className="flex flex-col items-center justify-start px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6"
             >
+                <div className=' max-w-xl text-lg font-serif'>Please fill out and submit the form below. Our representative will inform you about other requirements for
+                    obtaining an loan policy</div>
+
+
+
+
                 <div className="max-w-xl lg:max-w-3xl">
-                    <form  ref={form} onSubmit={sendEmail} className="mt-8 grid grid-cols-6 gap-6">
+                    <form ref={form} onSubmit={sendEmail} className="mt-8 grid grid-cols-6 gap-6">
                         <div className="col-span-6 sm:col-span-3">
                             <label
                                 htmlFor="fullName"

@@ -7,16 +7,14 @@ import { Link } from 'react-router-dom'
 export default function OurMission() {
   return (
     <div className=' mx-auto flex justify-center items-center  md:flex-row flex-col md:ms-32 gap-2'>
-                <div className='flex-1 self-center'>
+                <div className='flex-1 self-center sm:self-start md:self-center ms-0 sm:ms-8 md:ms-0'>
                     <img src='https://img.freepik.com/premium-photo/business-meeting-with-emplyees_1108314-462194.jpg'
-                        className="lg:w-[90%] w-[90%] m-5  lg:ms-10 rounded-xl "
+                        className="lg:w-[90%] w-[90%] m-5  lg:ms-0 rounded-xl "
                         height="700px"
                     />
                 </div>
  
-
-
-                <div className='flex-1 flex flex-col gap-6  md:me-44 p-4 mb-20'>
+                <div className='flex-1 flex flex-col gap-6  md:me-44 p-4 mb-20 ms-0 sm:ms-8 md:ms-0'>
                     <p  className='text-[#04200E] text-xl font-bold'>About Company</p>
                     <p className='text-[#04200E] text-4xl font-bold'>Our Mission</p>
                     <div className='text-green-800 text-3xl  pe-16'> "Here at BizCashandCapital, we empower businesses and ensure financial prosperity through tailored Commercial loan services." </div>
