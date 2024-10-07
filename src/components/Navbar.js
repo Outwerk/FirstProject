@@ -13,7 +13,7 @@ export default function Navbar() {
 
         <div className='cursor-pointer'><img src='https://www.bizcashandcapital.com/public/assets/images/resources/logo-1.png' alt='BIZCASHANDCAPITAL' /></div>
         <div className=''>
-          <a href="#" ><h2 className='bg-[#006738] text-[#FFFFFF] md:p-4 md:px-8 px-6 py-3 rounded-md text-sm font-bold hover:bg-[#04200E] transition-all duration-300'>Get Started</h2></a>
+          <a href="#" ><h2 className='bg-[#006738] text-[#FFFFFF] md:p-4 md:px-8 px-4 py-3 rounded-md text-sm font-bold hover:bg-[#04200E] transition-all duration-300 whitespace-nowrap'>Get Started</h2></a>
         </div>
 
         <div className='md:flex hidden items-center gap-4'>
