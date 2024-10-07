@@ -8,7 +8,7 @@ export default function HeroSection() {
             <div className='w-full flex justify-center md:justify-evenly items-center  flex-wrap md:flex-nowrap mt-[-38px] md:mt-[-20px] mb-10 md:mx-20 '>
 
                 {/* Div for Content */}
-                <div className='flex justify-center md:justify-start items-center self-center md:self-start flex-col gap-5 mt-[-50px] md:mt-0 p-3 md:p-0 '>
+                <div className='flex justify-center md:justify-start items-center self-center md:self-start flex-col gap-5 mt-[-50px] md:mt-0 p-3 md:p-0'>
 
 
                     {/* Bar On heading */}
@@ -20,8 +20,8 @@ export default function HeroSection() {
                         </h1>
                     </div>
 
-                    <div className='md:self-start mt-5 md:mt-8 w-full max-w-[500px]'>
-                        <p className='text-lg  sm:text-2xl break-words leading-relaxed'>
+                    <div className='md:self-start mt-5 md:mt-8 ms-5 md:ms-2 w-full max-w-[500px]'>
+                        <p className='text-lg md:text-2xl break-words leading-relaxed'>
                             With our personalized small business loans,<br />
                             you may achieve financial freedom while also fueling
                             the growth of your small business.
@@ -29,7 +29,7 @@ export default function HeroSection() {
                     </div>
 
                     <button
-                        className=' mt-5 md:mt-10 self-start bg-[#006738] text-[#FFFFFF] p-4 px-6 md:p-5 md:px-8 rounded-md text-lg font-bold hover:bg-[#04200E] transition-all duration-300 cursor-pointer'>Let's Get Started</button>
+                        className='ms-2 mt-5 md:mt-10 self-start bg-[#006738] text-[#FFFFFF] p-4 px-6 md:p-5 md:px-8 rounded-md text-xl font-bold hover:bg-[#04200E] transition-all duration-300 cursor-pointer'>Let's Get Started</button>
                 </div>
 
 
