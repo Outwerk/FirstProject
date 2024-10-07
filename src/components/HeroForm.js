@@ -318,10 +318,10 @@ export default function HeroForm() {
                             </select>
                         </div>
 
-                        <div className="col-span-6 sm:flex sm:items-center sm:gap-4 place-content-center">
+                        <div className="col-span-6 sm:flex sm:items-center justify-center gap-1 sm:gap-4 place-content-center">
 
-                            <label htmlFor="imageUpload" className="mb-3 text-xl">
-                                Upload Image:<span className='text-red-400 mt-2 '>*</span>
+                            <label htmlFor="imageUpload" className="mb-3 text-xl whitespace-nowrap">
+                                Upload Image:
                             </label>
                             <input
                                 type="file"
@@ -330,13 +330,12 @@ export default function HeroForm() {
                                 accept="image/*"
                                 key={fileKey}
                                 onChange={handleImageChange}
-                                required
                                 className="border border-gray-300 rounded p-1 "
                             />
                             {error && <p className="text-red-500">{error}</p>}
 
                             <button
-                                className="inline-block shrink-0 rounded-md border border-[#006738]  px-8 py-2 text-lg font-semibold bg-[#006738] text-[#FFFFFF] transition hover:bg-[#04200E] mt-5 md:mt-0 focus:outline-none focus:ring active:text-blue-500 "
+                                className="inline-block shrink-0 rounded-md border border-[#006738]  px-8 py-1 text-lg font-semibold bg-[#006738] text-[#FFFFFF] transition hover:bg-[#04200E] mt-5 md:mt-0 focus:outline-none focus:ring active:text-blue-500 "
                             >
                                 {loader ?
                                     <div className="loader border-t-4 border-b-4 border-white rounded-full w-8 h-8 animate-spin"></div>
