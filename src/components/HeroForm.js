@@ -15,6 +15,7 @@ export default function HeroForm() {
     // Option fields
     const [ownerShip, setOwnerShip] = useState('');
     const [buisness, setBuisness] = useState('');
+    const [funds, setFunds] = useState('');
 
     // Image And its Error if Need
     const [image, setImage] = useState(null);
@@ -22,6 +23,7 @@ export default function HeroForm() {
     const [error, setError] = useState('');
     const [fileKey, setFileKey] = useState(0);
 
+    const [loader, setLoader] = useState(false)
 
     // Handler for ownerShip
     const handleChange = (event) => {
@@ -31,6 +33,10 @@ export default function HeroForm() {
     // Handler for buisness
     const handlebuisness = (event) => {
         setBuisness(event.target.value);
+    };
+    // Handle for Funds
+    const handleFunds = (event) => {
+        setFunds(event.target.value);
     };
 
     // handle Input of image
@@ -45,6 +51,7 @@ export default function HeroForm() {
             setImage(null);
             setError('Please upload a valid image file.');
         }
+
     };
 
 
@@ -61,6 +68,7 @@ export default function HeroForm() {
             contactNo: CryptoJS.AES.encrypt(contactNo, secretKey).toString(),
             ownerShip: CryptoJS.AES.encrypt(ownerShip, secretKey).toString(),
             buisness: CryptoJS.AES.encrypt(buisness, secretKey).toString(),
+            funds: CryptoJS.AES.encrypt(funds, secretKey).toString(),
         }
         console.log("The Encrypted Data", encryptedData)
         setFullName("")
@@ -71,14 +79,18 @@ export default function HeroForm() {
         setContactNo("")
         setOwnerShip("")
         setBuisness("")
+        setFunds("")
         setImage(null)
         setFileKey((prevKey) => prevKey + 1);
+        setLoader(false)
         alert("Form Has been sent successfully!")
+
     }
 
     const form = useRef()
 
     const sendEmail = (e) => {
+        setLoader(true)
         e.preventDefault();
         emailjs.sendForm('service_2ctpksq', 'template_s2u4eck', form.current, {
             publicKey: '_PPs8ZgMRarry37fH',
@@ -91,9 +103,11 @@ export default function HeroForm() {
                 },
                 (error) => {
                     console.log('FAILED...', error.text);
+                    setLoader(false)
+
                 },
             );
-    };
+    }
 
 
 
@@ -107,7 +121,7 @@ export default function HeroForm() {
                 className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6"
             >
                 <div className="max-w-xl lg:max-w-3xl">
-                    <form ref={form} onSubmit={sendEmail} className="mt-8 grid grid-cols-6 gap-6">
+                    <form  ref={form} onSubmit={sendEmail} className="mt-8 grid grid-cols-6 gap-6">
                         <div className="col-span-6 sm:col-span-3">
                             <label
                                 htmlFor="fullName"
@@ -225,11 +239,11 @@ export default function HeroForm() {
 
                         {/* OwnerShip */}
                         <div className="col-span-6 sm:col-span-3">
-                            <label htmlFor="options" className="block text-sm font-medium text-gray-700 ">
+                            <label htmlFor="options1" className="block text-sm font-medium text-gray-700 ">
                                 Length of Ownership:<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
                             <select
-                                id="options"
+                                id="options1"
                                 value={ownerShip}
                                 name="ownerShip"
                                 onChange={handleChange}
@@ -240,7 +254,7 @@ export default function HeroForm() {
                                 <option value="2">2 years</option>
                                 <option value="3">3 years</option>
                                 <option value="5">5 years</option>
-                                <option value="10">10 years</option>
+                                <option value="10">10+ years</option>
 
                             </select>
                         </div>
@@ -248,22 +262,59 @@ export default function HeroForm() {
 
                         {/* type Of business */}
                         <div className="col-span-3 sm:col-span-3">
-                            <label htmlFor="options" className="block text-sm font-medium text-gray-700 ">
+                            <label htmlFor="options2" className="block text-sm font-medium text-gray-700 ">
                                 Type of Business:<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
                             <select
-                                id="options"
+                                id="options2"
                                 name='typeOfBusiness'
                                 value={buisness}
                                 onChange={handlebuisness}
                                 className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1 "
                                 required
                             >
-                                <option value="audio">auto</option>
+                                <option value="Audio">Auto</option>
+                                <option value="Bar/Night Club">Bar/Night Club</option>
+                                <option value="Retail">Retail</option>
+                                <option value="Manufacturing">Manufacturing</option>
+                                <option value="Trucking Logistics">Trucking Logistics</option>
                                 <option value="Beauty">Beauty</option>
+                                <option value="Hospitality">Hospitality</option>
                                 <option value="restaurant">restaurant</option>
                                 <option value="Contractor">Contractor</option>
                                 <option value="HealthCare">HealthCare</option>
+                                <option value="Liquor Store">Liquor Store</option>
+                                <option value="Other Retail">Other Retail</option>
+                                <option value="Other Service">Other Service</option>
+                            </select>
+                        </div>
+
+
+
+                        {/* Use Of Funds */}
+                        <div className="col-span-3 sm:col-span-3">
+                            <label htmlFor="options3" className="block text-sm font-medium text-gray-700 ">
+                                Use Of Funds:<span className='text-red-600 mt-2 text-xl'>*</span>
+                            </label>
+                            <select
+                                id="options3"
+                                name='useOfFunds'
+                                value={funds}
+                                onChange={handleFunds}
+                                className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1 "
+                                required
+                            >
+                                <option value="Debt Consolidation/Refinance">Debt Consolidation/Refinance</option>
+                                <option value="Inventory Purchase">Inventory Purchase</option>
+                                <option value="Equipment Purchase">Equipment Purchase</option>
+                                <option value="Working Capital">Working Capital</option>
+                                <option value="Remodeling">Remodeling</option>
+                                <option value="Business Location Acquisition">Business Location Acquisition</option>
+                                <option value="Marketing/ Advertising">Marketing/ Advertising</option>
+                                <option value="Hire New Employees">Hire New Employees</option>
+                                <option value="Emergency Business Repairs">Emergency Business Repairs</option>
+                                <option value="Other Business Purpose">Other Business Purpose</option>
+
                             </select>
                         </div>
 
@@ -287,7 +338,12 @@ export default function HeroForm() {
                             <button
                                 className="inline-block shrink-0 rounded-md border border-[#006738]  px-8 py-2 text-lg font-semibold bg-[#006738] text-[#FFFFFF] transition hover:bg-[#04200E] mt-5 md:mt-0 focus:outline-none focus:ring active:text-blue-500 "
                             >
-                                Submit
+                                {loader ?
+                                    <div className="loader border-t-4 border-b-4 border-white rounded-full w-8 h-8 animate-spin"></div>
+                                    :
+                                    <>Submit</>}
+
+
                             </button>
                         </div>
                     </form>

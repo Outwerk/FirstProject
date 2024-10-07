@@ -10,7 +10,7 @@ export default function OurService() {
             text: "Expand your business with the our Business Loans, which provides flexible financing choices, personalized support, and competitive rates to help you expand, improve cash flow, and reach your entrepreneurial goals."
         },
         {
-            cardImg: "https://advancedcash.co.nz/wp-content/uploads/2020/07/05-How-You-Can-Benefit-From-An-Instant-Cash-Loan.jpg",
+            cardImg: "https://www.dnb.nl/media/1yrlnod0/anp-foto-bij-artikel-cash-geld.jpg?width=1600&height=900&quality=100&rnd=133268444073300000",
             heading: "Commercial Loan",
             text: "We offers Commercial Loan that are aimed to the specific needs of businesses, providing funding for real estate acquisitions, equipment financing, working capital, and other critical business efforts, enabling you to achieve growth and success. "
         },
@@ -41,18 +41,18 @@ export default function OurService() {
 
 
     return (
-        <div className='my-10 bg-slate-100 p-4 pb-10 mb-16'>
+        <div className='my-10 bg-slate-100 p-4 pb-10 mb-20'>
             <div className='lg:w-[80%] w-full flex justify-center items-center flex-col lg:mx-auto gap-3 '>
                 <h3 className='text-[#04200E] text-2xl font-bold self-start'>Our services</h3>
                 <h1 className='text-[#04200E] text-3xl md:text-4xl font-bold self-start '>We're covering all the loan fields</h1>
                 <p className='text-xl  lg:pe-16 mt-5'>We offer a variety of loan options to meet the diverse needs of small businesses. Our loans are designed to be fast and easy to obtain, with flexible repayment plans and competitive interest rates. Whether you need funds to cover operating expenses, purchase inventory, or invest in equipment, we have a loan solution that's right for you. </p>
 
                 {/* Cards */}
-                <div className="relative max-w-[340px] self-start bg-red-100 shadow-2xl shadow-white">
+                <div className="relative max-w-[340px] sm:max-w-3xl self-center bg-white shadow-2xl my-5  sm:p-6">
                     <div className="overflow-hidden">
                         <div className="flex transition-transform duration-500" style={{ transform: `translateX(${-index * 100}%)` }}>
                             {cards.map((card, idx) => (
-                                <div key={idx} className="min-w-full bg-white shadow-lg rounded-lg p-3">
+                                <div key={idx} className="min-w-full rounded-lg p-3">
                                     <img
                                         className='rounded-lg '
                                         src={card.cardImg}
