@@ -261,7 +261,7 @@ export default function HeroForm() {
 
 
                         {/* type Of business */}
-                        <div className="col-span-3 sm:col-span-3">
+                        <div className="col-span-6 sm:col-span-3">
                             <label htmlFor="options2" className="block text-sm font-medium text-gray-700 ">
                                 Type of Business:<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
@@ -292,7 +292,7 @@ export default function HeroForm() {
 
 
                         {/* Use Of Funds */}
-                        <div className="col-span-3 sm:col-span-3">
+                        <div className="col-span-6 sm:col-span-3">
                             <label htmlFor="options3" className="block text-sm font-medium text-gray-700 ">
                                 Use Of Funds:<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
