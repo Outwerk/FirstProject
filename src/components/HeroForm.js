@@ -2,88 +2,101 @@
 import React, { useState, useRef } from 'react'
 import emailjs from '@emailjs/browser';
 import CryptoJS from 'crypto-js'
+import Swal from 'sweetalert2';
+
 
 export default function HeroForm() {
 
-    const [fullName, setFullName] = useState("")
-    const [email, setEmail] = useState("")
-    const [buisnessName, setBuisnessName] = useState("")
-    const [buisnessPhone, setBuisnessPhone] = useState("")
+    const [merchantFullName, setMerchantFullName] = useState("")
+    const [businessLegalName, setBusinessLegalName] = useState("")
     const [amountRequested, setAmountRequested] = useState("")
+    const [email, setEmail] = useState("")
+    const [businessStartDate, setBusinessStartDate] = useState("")
+    const [industry, setIndustry] = useState("")
+    const [buisnessAddress, setBuisnessAddress] = useState("")
+    const [EIN, setEIN] = useState("")
+    const [socialSec, setSocialSec] = useState("")
+    const [dateOfBirth, setDateOfBirth] = useState("")
+    const [purposeOfFunds, setPurposeOfFunds] = useState("")
+    const [homeAddress, setHomeAddress] = useState("")
+    const [ownerShip, setOwnerShip] = useState("")
     const [contactNo, setContactNo] = useState("")
-
-    // Option fields
-    const [ownerShip, setOwnerShip] = useState('');
-    const [buisness, setBuisness] = useState('');
-    const [funds, setFunds] = useState('');
-
-    // Image And its Error if Need
-    const [image, setImage] = useState(null);
-    const [file, setFile] = useState(null);
-    const [error, setError] = useState('');
-    const [fileKey, setFileKey] = useState(0);
-
+    const [altContactNo, setAltContactNo] = useState("")
+    
+    
     const [loader, setLoader] = useState(false)
 
-    // Handler for ownerShip
-    const handleChange = (event) => {
-        setOwnerShip(event.target.value);
-    };
 
-    // Handler for buisness
-    const handlebuisness = (event) => {
-        setBuisness(event.target.value);
-    };
-    // Handle for Funds
-    const handleFunds = (event) => {
-        setFunds(event.target.value);
-    };
 
-    // handle Input of image
-    const handleImageChange = (event) => {
-        const selectedFile = event.target.files[0];
-        const setFile = event.target.files[0];
-        // Check if the selected file is an image
-        if (selectedFile && selectedFile.type.startsWith('image/')) {
-            setImage(URL.createObjectURL(selectedFile)); // Create a URL for the image
-            setError('');
-        } else {
-            setImage(null);
-            setError('Please upload a valid image file.');
-        }
 
-    };
+    const showAlert = () => {
+        Swal.fire({
+          title: 'Thank You!',
+          text: 'Your form Has Been Sent Successfully',
+          icon: 'success',
+          confirmButtonText: 'Okay',
+          customClass: {
+            popup: 'bg-white rounded-lg shadow-lg p-4',  
+            title: 'text-xl font-bold text-gray-800',  
+            content: 'text-gray-700',
+            confirmButton: 'px-12 py-2 bg-[#006738] text-white rounded hover:bg-[#04200E]' 
+          }
+        });
+      };
+      const showErrorAlert = () => {
+        Swal.fire({
+          title: 'Error!',
+          text: 'Something went wrong.',
+          icon: 'error',
+          confirmButtonText: 'Try Again',
+          customClass: {
+            popup: 'bg-white rounded-lg shadow-lg p-4',
+            title: 'text-xl font-bold text-red-600', 
+            content: 'text-gray-700', 
+            confirmButton: 'px-12 py-2 bg-red-500 text-white rounded hover:bg-red-600' 
+          }
+        });
+      };
 
+      
+      
 
     // Encrypting Data 
-    function encrypt() {
+    function emptyFields() {
 
-        let secretKey = "Shahrukh123"
-        let encryptedData = {
-            fullName: CryptoJS.AES.encrypt(fullName, secretKey).toString(),
-            email: CryptoJS.AES.encrypt(email, secretKey).toString(),
-            buisnessName: CryptoJS.AES.encrypt(buisnessName, secretKey).toString(),
-            buisnessPhone: CryptoJS.AES.encrypt(buisnessPhone, secretKey).toString(),
-            amountRequested: CryptoJS.AES.encrypt(amountRequested, secretKey).toString(),
-            contactNo: CryptoJS.AES.encrypt(contactNo, secretKey).toString(),
-            ownerShip: CryptoJS.AES.encrypt(ownerShip, secretKey).toString(),
-            buisness: CryptoJS.AES.encrypt(buisness, secretKey).toString(),
-            funds: CryptoJS.AES.encrypt(funds, secretKey).toString(),
-        }
-        console.log("The Encrypted Data", encryptedData)
-        setFullName("")
-        setEmail("")
-        setBuisnessName("")
-        setBuisnessPhone("")
-        setAmountRequested("")
-        setContactNo("")
-        setOwnerShip("")
-        setBuisness("")
-        setFunds("")
-        setImage(null)
-        setFileKey((prevKey) => prevKey + 1);
+        // let secretKey = "Shahrukh123"
+        // let encryptedData = {
+        //     fullName: CryptoJS.AES.encrypt(fullName, secretKey).toString(),
+        //     email: CryptoJS.AES.encrypt(email, secretKey).toString(),
+        //     buisnessName: CryptoJS.AES.encrypt(buisnessName, secretKey).toString(),
+        //     buisnessPhone: CryptoJS.AES.encrypt(buisnessPhone, secretKey).toString(),
+        //     amountRequested: CryptoJS.AES.encrypt(amountRequested, secretKey).toString(),
+        //     contactNo: CryptoJS.AES.encrypt(contactNo, secretKey).toString(),
+        //     ownerShip: CryptoJS.AES.encrypt(ownerShip, secretKey).toString(),
+        //     buisness: CryptoJS.AES.encrypt(buisness, secretKey).toString(),
+        //     funds: CryptoJS.AES.encrypt(funds, secretKey).toString(),
+        // }
+
+
+
+        // console.log("The Encrypted Data", encryptedData)
+        setMerchantFullName("");
+        setBusinessLegalName("");
+        setAmountRequested("");
+        setEmail("");
+        setBusinessStartDate("");
+        setIndustry("");
+        setBuisnessAddress("");
+        setEIN("");
+        setSocialSec("");
+        setDateOfBirth("");
+        setPurposeOfFunds("");
+        setHomeAddress("");
+        setOwnerShip("");
+        setContactNo("");
+        setAltContactNo("");
         setLoader(false)
-        alert("Form Has been sent successfully!")
+        
 
     }
 
@@ -92,72 +105,108 @@ export default function HeroForm() {
     const sendEmail = (e) => {
         setLoader(true)
         e.preventDefault();
+
         emailjs.sendForm('service_2ctpksq', 'template_s2u4eck', form.current, {
             publicKey: '_PPs8ZgMRarry37fH',
         })
             .then(
                 () => {
-                    console.log('SUCCESS!');
+                    // console.log('SUCCESS!');
                     //   console.log(form.current)
-                    encrypt()
+                    emptyFields()
+                    showAlert()
                 },
                 (error) => {
-                    console.log('FAILED...', error.text);
+                    // console.log('FAILED...', error.text);
+                    showErrorAlert()
                     setLoader(false)
 
                 },
             );
     }
 
-
-
-
-
-
-
     return (
         <div className=''>
 
-
-
-
-
             <main
-                className="flex flex-col items-center justify-start px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6"
+                className="flex flex-col items-center justify-start px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-2 xl:col-span-6"
             >
-                <div className=' max-w-xl text-lg font-serif'>Please fill out and submit the form below. Our representative will inform you about other requirements for
+                <div className='max-w-[620px] ms-2 text-lg font-serif'>Please fill out and submit the form below. Our representative will inform you about other requirements for
                     obtaining an loan policy</div>
 
 
 
 
-                <div className="max-w-xl lg:max-w-3xl">
-                    <form ref={form} onSubmit={sendEmail} className="mt-8 grid grid-cols-6 gap-6">
-                        <div className="col-span-6 sm:col-span-3">
+                <div className="w-full p-1 ">
+                    <form ref={form} onSubmit={sendEmail} className=" mt-2 grid grid-cols-10 gap-5 p-1">
+                        
+                        <div className="col-span-10 sm:col-span-5">
                             <label
-                                htmlFor="fullName"
+                                htmlFor="merchantFullName"
                                 className="block text-sm font-medium text-gray-700 "
                             >
-                                FullName<span className='text-red-600 mt-2 text-xl'>*</span>
+                                Merchant FullName :<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
 
                             <input
-                                value={fullName}
-                                onChange={(e) => setFullName(e.target.value)}
+                                value={merchantFullName}
+                                onChange={(e) => setMerchantFullName(e.target.value)}
                                 type="text"
-                                id="fullName"
-                                name="fullName"
+                                id="merchantFullName"
+                                name="merchantFullName"
                                 className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
                                 required
                             />
                         </div>
 
-                        <div className="col-span-6 sm:col-span-3">
+
+                        <div className="col-span-10 sm:col-span-5">
+                            <label
+                                htmlFor="businessLegalName"
+                                className="block text-sm font-medium text-gray-700 "
+                            >
+                                Business Legal Name :<span className='text-red-600 mt-2 text-xl'>*</span>
+                            </label>
+
+                            <input
+                                value={businessLegalName}
+                                onChange={(e) => setBusinessLegalName(e.target.value)}
+                                type="text"
+                                id="businessLegalName"
+                                name="businessLegalName"
+                                className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
+                                required
+                            />
+                        </div>
+
+
+
+                        <div className="col-span-10 sm:col-span-3">
+                            <label
+                                htmlFor="amountRequested"
+                                className="block text-sm font-medium text-gray-700 "
+                            >
+                                Amount Requested :<span className='text-red-600 mt-2 text-xl'>*</span>
+                            </label>
+
+                            <input
+                                value={amountRequested}
+                                onChange={(e) => setAmountRequested(e.target.value)}
+                                type="text"
+                                id="amountRequested"
+                                name="amountRequested"
+                                className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
+                                required
+                            />
+                        </div>
+
+
+                        <div className="col-span-10 sm:col-span-4">
                             <label
                                 htmlFor="email"
                                 className="block text-sm font-medium text-gray-700 "
                             >
-                                Email<span className='text-red-600 mt-2 text-xl'>*</span>
+                                Email :<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
 
                             <input
@@ -172,69 +221,185 @@ export default function HeroForm() {
                         </div>
 
 
-                        <div className="col-span-6 sm:col-span-3">
+
+                        <div className="col-span-10 sm:col-span-3">
                             <label
-                                htmlFor="businessName"
+                                htmlFor="industry"
                                 className="block text-sm font-medium text-gray-700 "
                             >
-                                Buisness Name<span className='text-red-600 mt-2 text-xl'>*</span>
+                                Industry :<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
 
                             <input
-                                value={buisnessName}
-                                onChange={(e) => setBuisnessName(e.target.value)}
+                                value={industry}
+                                onChange={(e) => setIndustry(e.target.value)}
                                 type="text"
-                                id="businessName"
-                                name="businessName"
+                                id="industry"
+                                name="industry"
+                                className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
+                                required
+                            />
+                        </div>
+
+
+                        <div className="col-span-10 sm:col-span-3">
+                            <label
+                                htmlFor="businessStartDate"
+                                className="block text-sm font-medium text-gray-700 "
+                            > Business Start Date :<span className='text-red-600 mt-2 text-xl'>*</span>
+                            </label>
+
+                            <input
+                                value={businessStartDate}
+                                onChange={(e) => setBusinessStartDate(e.target.value)}
+                                type="text"
+                                id="businessStartDate"
+                                name="businessStartDate"
                                 className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm  p-1"
                                 required
                             />
                         </div>
 
-                        <div className="col-span-6 sm:col-span-3">
+                       
+                        <div className="col-span-10 sm:col-span-7">
                             <label
-                                htmlFor="businessPhone"
+                                htmlFor="businessAddress"
                                 className="block text-sm font-medium text-gray-700 "
                             >
-                                Business Phone<span className='text-red-600 mt-2 text-xl'>*</span>
+                                Business Address :<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
 
                             <input
-                                value={buisnessPhone}
-                                onChange={(e) => setBuisnessPhone(e.target.value)}
+                                value={buisnessAddress}
+                                onChange={(e) => setBuisnessAddress(e.target.value)}
                                 type="text"
-                                id="businessPhone"
-                                name="businessPhone"
+                                id="businessAddress"
+                                name="businessAddress"
+                                className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
+                                required/></div>
+
+
+
+                        <div className="col-span-10 sm:col-span-3">
+                            <label
+                                htmlFor="EIN"
+                                className="block text-sm font-medium text-gray-700 "
+                            >
+                                EIN :<span className='text-red-600 mt-2 text-xl'>*</span>
+                            </label>
+
+                            <input
+                                value={EIN}
+                                onChange={(e) => setEIN(e.target.value)}
+                                type="text"
+                                id="EIN"
+                                name="EIN"
                                 className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
                                 required
                             />
                         </div>
 
-                        <div className="col-span-6 sm:col-span-3">
+                        <div className="col-span-10 sm:col-span-4">
                             <label
-                                htmlFor="amountRequested"
+                                htmlFor="socialSec"
                                 className="block text-sm font-medium text-gray-700 "
                             >
-                                Amount Requested<span className='text-red-600 mt-2 text-xl'>*</span>
+                                Social Sec# :<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
 
                             <input
-                                value={amountRequested}
-                                onChange={(e) => setAmountRequested(e.target.value)}
+                                value={socialSec}
+                                onChange={(e) => setSocialSec(e.target.value)}
                                 type="text"
-                                id="amountRequested"
-                                name="amountRequested"
+                                id="socialSec"
+                                name="socialSec"
                                 className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
                                 required
                             />
                         </div>
 
-                        <div className="col-span-6 sm:col-span-3">
+
+
+
+                        <div className="col-span-10 sm:col-span-3">
+                            <label
+                                htmlFor="dateOfBirth"
+                                className="block text-sm font-medium text-gray-700 "
+                            >
+                                Date of Birth :<span className='text-red-600 mt-2 text-xl'>*</span>
+                            </label>
+
+                            <input
+                                value={dateOfBirth}
+                                onChange={(e) => setDateOfBirth(e.target.value)}
+                                type="text"
+                                id="dateOfBirth"
+                                name="dateOfBirth"
+                                className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
+                                required
+                            />
+                        </div>
+
+                        <div className="col-span-10 sm:col-span-5">
+                            <label
+                                htmlFor="purposeOfFunds"
+                                className="block text-sm font-medium text-gray-700 "
+                            >
+                                Purpose of Funds :<span className='text-red-600 mt-2 text-xl'>*</span>
+                            </label>
+
+                            <input
+                                value={purposeOfFunds}
+                                onChange={(e) => setPurposeOfFunds(e.target.value)}
+                                type="text"
+                                id="purposeOfFunds"
+                                name="purposeOfFunds"
+                                className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
+                                required
+                            />
+                        </div>
+
+                       <div className="col-span-10 sm:col-span-5">
+                            <label
+                                htmlFor="homeAddress"
+                                className="block text-sm font-medium text-gray-700 "
+                            >Home Address :<span className='text-red-600 mt-2 text-xl'>*</span>
+                            </label>
+
+                            <input
+                                value={homeAddress}
+                                onChange={(e) => setHomeAddress(e.target.value)}
+                                type="text"
+                                id="homeAddress"
+                                name="homeAddress"
+                                className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
+                                required
+                            />
+                        </div>
+
+                       <div className="col-span-10 sm:col-span-3">
+                            <label
+                                htmlFor="ownerShip"
+                                className="block text-sm font-medium text-gray-700 "
+                            >Ownership % :<span className='text-red-600 mt-2 text-xl'>*</span>
+                            </label>
+
+                            <input
+                                value={ownerShip}
+                                onChange={(e) => setOwnerShip(e.target.value)}
+                                type="text"
+                                id="ownerShip"
+                                name="ownerShip"
+                                className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
+                                required
+                            />
+                        </div>
+                        <div className="col-span-10 sm:col-span-4">
                             <label
                                 htmlFor="contactNo"
                                 className="block text-sm font-medium text-gray-700 "
                             >
-                                Contact No<span className='text-red-600 mt-2 text-xl'>*</span>
+                                Contact No :<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
 
                             <input
@@ -248,102 +413,30 @@ export default function HeroForm() {
                             />
                         </div>
 
-                        {/* OwnerShip */}
-                        <div className="col-span-6 sm:col-span-3">
-                            <label htmlFor="options1" className="block text-sm font-medium text-gray-700 ">
-                                Length of Ownership:<span className='text-red-600 mt-2 text-xl'>*</span>
+                        <div className="col-span-10 sm:col-span-3">
+                            <label
+                                htmlFor="altContactNo"
+                                className="block text-sm font-medium text-gray-700 "
+                            >Alt Contact No :<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
-                            <select
-                                id="options1"
-                                value={ownerShip}
-                                name="ownerShip"
-                                onChange={handleChange}
+
+                            <input
+                                value={altContactNo}
+                                onChange={(e) => setAltContactNo(e.target.value)}
+                                type="text"
+                                id="altContactNo"
+                                name="altContactNo"
                                 className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
                                 required
-                            >
-                                <option value="1">less than 1 year</option>
-                                <option value="2">2 years</option>
-                                <option value="3">3 years</option>
-                                <option value="5">5 years</option>
-                                <option value="10">10+ years</option>
-
-                            </select>
-                        </div>
-
-
-                        {/* type Of business */}
-                        <div className="col-span-6 sm:col-span-3">
-                            <label htmlFor="options2" className="block text-sm font-medium text-gray-700 ">
-                                Type of Business:<span className='text-red-600 mt-2 text-xl'>*</span>
-                            </label>
-                            <select
-                                id="options2"
-                                name='typeOfBusiness'
-                                value={buisness}
-                                onChange={handlebuisness}
-                                className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1 "
-                                required
-                            >
-                                <option value="Audio">Auto</option>
-                                <option value="Bar/Night Club">Bar/Night Club</option>
-                                <option value="Retail">Retail</option>
-                                <option value="Manufacturing">Manufacturing</option>
-                                <option value="Trucking Logistics">Trucking Logistics</option>
-                                <option value="Beauty">Beauty</option>
-                                <option value="Hospitality">Hospitality</option>
-                                <option value="restaurant">restaurant</option>
-                                <option value="Contractor">Contractor</option>
-                                <option value="HealthCare">HealthCare</option>
-                                <option value="Liquor Store">Liquor Store</option>
-                                <option value="Other Retail">Other Retail</option>
-                                <option value="Other Service">Other Service</option>
-                            </select>
-                        </div>
-
-
-
-                        {/* Use Of Funds */}
-                        <div className="col-span-6 sm:col-span-3">
-                            <label htmlFor="options3" className="block text-sm font-medium text-gray-700 ">
-                                Use Of Funds:<span className='text-red-600 mt-2 text-xl'>*</span>
-                            </label>
-                            <select
-                                id="options3"
-                                name='useOfFunds'
-                                value={funds}
-                                onChange={handleFunds}
-                                className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1 "
-                                required
-                            >
-                                <option value="Debt Consolidation/Refinance">Debt Consolidation/Refinance</option>
-                                <option value="Inventory Purchase">Inventory Purchase</option>
-                                <option value="Equipment Purchase">Equipment Purchase</option>
-                                <option value="Working Capital">Working Capital</option>
-                                <option value="Remodeling">Remodeling</option>
-                                <option value="Business Location Acquisition">Business Location Acquisition</option>
-                                <option value="Marketing/ Advertising">Marketing/ Advertising</option>
-                                <option value="Hire New Employees">Hire New Employees</option>
-                                <option value="Emergency Business Repairs">Emergency Business Repairs</option>
-                                <option value="Other Business Purpose">Other Business Purpose</option>
-
-                            </select>
-                        </div>
-
-                        <div className="col-span-6 sm:flex sm:items-center justify-center gap-1 sm:gap-4 place-content-center">
-
-                            <label htmlFor="imageUpload" className="mb-3 text-xl whitespace-nowrap">
-                                Upload Image:
-                            </label>
-                            <input
-                                type="file"
-                                id="imageUpload"
-                                name="attachment"
-                                accept="image/*"
-                                key={fileKey}
-                                onChange={handleImageChange}
-                                className="border border-gray-300 rounded p-1 "
                             />
-                            {error && <p className="text-red-500">{error}</p>}
+                        </div>
+
+
+
+
+
+                        <div className="col-span-10 sm:flex sm:items-center justify-end gap-1 sm:gap-4 ">
+
 
                             <button
                                 className="inline-block shrink-0 rounded-md border border-[#006738]  px-8 py-1 text-lg font-semibold bg-[#006738] text-[#FFFFFF] transition hover:bg-[#04200E] mt-5 md:mt-0 focus:outline-none focus:ring active:text-blue-500 "

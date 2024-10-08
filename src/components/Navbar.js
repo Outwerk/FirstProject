@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaPhone} from "react-icons/fa";
 import TopNav from './TopNav';
+import Logo from "../assets/LOGO.jpg"
 
 
 
@@ -11,7 +12,7 @@ export default function Navbar() {
       <TopNav/>
       <div className='flex md:justify-center justify-between md:px-0 px-6 items-center gap-10 w-full h-20'>
 
-        <div className='cursor-pointer'><img src='https://www.bizcashandcapital.com/public/assets/images/resources/logo-1.png' alt='BIZCASHANDCAPITAL' /></div>
+        <div className='cursor-pointer'><img src={Logo} className='w-28 h-20 me-[-50px] z-50' /></div>
         <div className=''>
           <a href="#" ><h2 className='bg-[#006738] text-[#FFFFFF] md:p-4 md:px-8 px-4 py-3 rounded-md text-sm font-bold hover:bg-[#04200E] transition-all duration-300 whitespace-nowrap'>Get Started</h2></a>
         </div>
