@@ -1,7 +1,6 @@
 
 import React, { useState, useRef } from 'react'
 import emailjs from '@emailjs/browser';
-import CryptoJS from 'crypto-js'
 import Swal from 'sweetalert2';
 
 
@@ -23,12 +22,11 @@ export default function HeroForm() {
     const [contactNo, setContactNo] = useState("")
     const [altContactNo, setAltContactNo] = useState("")
     
-    
     const [loader, setLoader] = useState(false)
 
 
 
-
+    // Alerts
     const showAlert = () => {
         Swal.fire({
           title: 'Thank You!',
@@ -59,27 +57,9 @@ export default function HeroForm() {
       };
 
       
-      
-
-    // Encrypting Data 
+    // Empty Fields 
     function emptyFields() {
-
-        // let secretKey = "Shahrukh123"
-        // let encryptedData = {
-        //     fullName: CryptoJS.AES.encrypt(fullName, secretKey).toString(),
-        //     email: CryptoJS.AES.encrypt(email, secretKey).toString(),
-        //     buisnessName: CryptoJS.AES.encrypt(buisnessName, secretKey).toString(),
-        //     buisnessPhone: CryptoJS.AES.encrypt(buisnessPhone, secretKey).toString(),
-        //     amountRequested: CryptoJS.AES.encrypt(amountRequested, secretKey).toString(),
-        //     contactNo: CryptoJS.AES.encrypt(contactNo, secretKey).toString(),
-        //     ownerShip: CryptoJS.AES.encrypt(ownerShip, secretKey).toString(),
-        //     buisness: CryptoJS.AES.encrypt(buisness, secretKey).toString(),
-        //     funds: CryptoJS.AES.encrypt(funds, secretKey).toString(),
-        // }
-
-
-
-        // console.log("The Encrypted Data", encryptedData)
+  
         setMerchantFullName("");
         setBusinessLegalName("");
         setAmountRequested("");
@@ -95,9 +75,9 @@ export default function HeroForm() {
         setOwnerShip("");
         setContactNo("");
         setAltContactNo("");
+
         setLoader(false)
         
-
     }
 
     const form = useRef()
@@ -125,9 +105,11 @@ export default function HeroForm() {
             );
     }
 
+
+
+
     return (
         <div className=''>
-
             <main
                 className="flex flex-col items-center justify-start px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-2 xl:col-span-6"
             >
@@ -136,14 +118,13 @@ export default function HeroForm() {
 
 
 
-
                 <div className="w-full p-1 ">
-                    <form ref={form} onSubmit={sendEmail} className=" mt-2 grid grid-cols-10 gap-5 p-1">
+                    <form ref={form} onSubmit={sendEmail} className=" mt-2 grid grid-cols-10 gap-5 p-1 ">
                         
                         <div className="col-span-10 sm:col-span-5">
                             <label
                                 htmlFor="merchantFullName"
-                                className="block text-sm font-medium text-gray-700 "
+                                className="block text-md font-medium text-gray-700 "
                             >
                                 Merchant FullName :<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
@@ -163,7 +144,7 @@ export default function HeroForm() {
                         <div className="col-span-10 sm:col-span-5">
                             <label
                                 htmlFor="businessLegalName"
-                                className="block text-sm font-medium text-gray-700 "
+                                className="block text-md font-medium text-gray-700 "
                             >
                                 Business Legal Name :<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
@@ -184,7 +165,7 @@ export default function HeroForm() {
                         <div className="col-span-10 sm:col-span-3">
                             <label
                                 htmlFor="amountRequested"
-                                className="block text-sm font-medium text-gray-700 "
+                                className="block text-md font-medium text-gray-700 "
                             >
                                 Amount Requested :<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
@@ -192,7 +173,9 @@ export default function HeroForm() {
                             <input
                                 value={amountRequested}
                                 onChange={(e) => setAmountRequested(e.target.value)}
-                                type="text"
+                                type="number"
+                                min="1"
+                                step="1"
                                 id="amountRequested"
                                 name="amountRequested"
                                 className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
@@ -204,7 +187,7 @@ export default function HeroForm() {
                         <div className="col-span-10 sm:col-span-4">
                             <label
                                 htmlFor="email"
-                                className="block text-sm font-medium text-gray-700 "
+                                className="block text-md font-medium text-gray-700 "
                             >
                                 Email :<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
@@ -225,7 +208,7 @@ export default function HeroForm() {
                         <div className="col-span-10 sm:col-span-3">
                             <label
                                 htmlFor="industry"
-                                className="block text-sm font-medium text-gray-700 "
+                                className="block text-md font-medium text-gray-700 "
                             >
                                 Industry :<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
@@ -245,14 +228,14 @@ export default function HeroForm() {
                         <div className="col-span-10 sm:col-span-3">
                             <label
                                 htmlFor="businessStartDate"
-                                className="block text-sm font-medium text-gray-700 "
+                                className="block text-md font-medium text-gray-700 "
                             > Business Start Date :<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
 
                             <input
                                 value={businessStartDate}
                                 onChange={(e) => setBusinessStartDate(e.target.value)}
-                                type="text"
+                                type="date"
                                 id="businessStartDate"
                                 name="businessStartDate"
                                 className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm  p-1"
@@ -264,7 +247,7 @@ export default function HeroForm() {
                         <div className="col-span-10 sm:col-span-7">
                             <label
                                 htmlFor="businessAddress"
-                                className="block text-sm font-medium text-gray-700 "
+                                className="block text-md font-medium text-gray-700 "
                             >
                                 Business Address :<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
@@ -279,11 +262,10 @@ export default function HeroForm() {
                                 required/></div>
 
 
-
                         <div className="col-span-10 sm:col-span-3">
                             <label
                                 htmlFor="EIN"
-                                className="block text-sm font-medium text-gray-700 "
+                                className="block text-md font-medium text-gray-700 "
                             >
                                 EIN :<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
@@ -302,7 +284,7 @@ export default function HeroForm() {
                         <div className="col-span-10 sm:col-span-4">
                             <label
                                 htmlFor="socialSec"
-                                className="block text-sm font-medium text-gray-700 "
+                                className="block text-md font-medium text-gray-700 "
                             >
                                 Social Sec# :<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
@@ -318,13 +300,10 @@ export default function HeroForm() {
                             />
                         </div>
 
-
-
-
                         <div className="col-span-10 sm:col-span-3">
                             <label
                                 htmlFor="dateOfBirth"
-                                className="block text-sm font-medium text-gray-700 "
+                                className="block text-md font-medium text-gray-700 "
                             >
                                 Date of Birth :<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
@@ -332,7 +311,7 @@ export default function HeroForm() {
                             <input
                                 value={dateOfBirth}
                                 onChange={(e) => setDateOfBirth(e.target.value)}
-                                type="text"
+                                type="date"
                                 id="dateOfBirth"
                                 name="dateOfBirth"
                                 className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
@@ -343,7 +322,7 @@ export default function HeroForm() {
                         <div className="col-span-10 sm:col-span-5">
                             <label
                                 htmlFor="purposeOfFunds"
-                                className="block text-sm font-medium text-gray-700 "
+                                className="block text-md font-medium text-gray-700 "
                             >
                                 Purpose of Funds :<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
@@ -362,7 +341,7 @@ export default function HeroForm() {
                        <div className="col-span-10 sm:col-span-5">
                             <label
                                 htmlFor="homeAddress"
-                                className="block text-sm font-medium text-gray-700 "
+                                className="block text-md font-medium text-gray-700 "
                             >Home Address :<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
 
@@ -380,7 +359,7 @@ export default function HeroForm() {
                        <div className="col-span-10 sm:col-span-3">
                             <label
                                 htmlFor="ownerShip"
-                                className="block text-sm font-medium text-gray-700 "
+                                className="block text-md font-medium text-gray-700 "
                             >Ownership % :<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
 
@@ -394,10 +373,11 @@ export default function HeroForm() {
                                 required
                             />
                         </div>
+
                         <div className="col-span-10 sm:col-span-4">
                             <label
                                 htmlFor="contactNo"
-                                className="block text-sm font-medium text-gray-700 "
+                                className="block text-md font-medium text-gray-700 "
                             >
                                 Contact No :<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
@@ -416,7 +396,7 @@ export default function HeroForm() {
                         <div className="col-span-10 sm:col-span-3">
                             <label
                                 htmlFor="altContactNo"
-                                className="block text-sm font-medium text-gray-700 "
+                                className="block text-md font-medium text-gray-700 "
                             >Alt Contact No :<span className='text-red-600 mt-2 text-xl'>*</span>
                             </label>
 
@@ -430,7 +410,6 @@ export default function HeroForm() {
                                 required
                             />
                         </div>
-
 
 
 
@@ -449,6 +428,7 @@ export default function HeroForm() {
 
                             </button>
                         </div>
+                        
                     </form>
                 </div>
             </main>

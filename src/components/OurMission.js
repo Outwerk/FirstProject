@@ -1,7 +1,5 @@
-import React from 'react'
 import { FaCheckCircle } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa";
-import { Link } from 'react-router-dom'
 
 
 export default function OurMission() {
@@ -32,7 +30,7 @@ export default function OurMission() {
 
 
                     <div className='flex justify-start md:items-center items-start md:gap-10 gap-4 md:flex-row flex-col'>
-                        <div><Link to="/form" ><h2 className='bg-[#006738] text-[#FFFFFF] p-5 px-8 rounded-md text-sm font-bold hover:bg-[#04200E] transition-all duration-300'>Get Started</h2></Link></div>
+                        <div><h2 className='bg-[#006738] text-[#FFFFFF] p-5 px-8 rounded-md text-sm font-bold hover:bg-[#04200E] transition-all duration-300'>Get Started</h2></div>
 
                         <div className='flex justify-start items-center gap-4'>
                             <div className='text-green-400 text-3xl p-3 outline outline-gray-300 rounded-full hover:bg-[#006738] hover:text-white transition-all duration-300 cursor-pointer'>	<FaPhone /></div>

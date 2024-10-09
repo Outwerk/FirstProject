@@ -1,10 +1,14 @@
 import "../App.css"
 import HeroForm from '../components/HeroForm';
+import Navbar from '../components/Navbar'
+import OurMission from '../components/OurMission'
+import OurService from '../components/OurService'
 
 
 export default function HeroSection() {
     return (
         < >
+            <Navbar />
             <div className='w-full flex justify-center sm:justify-start  md:justify-center md:gap-2 items-center  flex-wrap md:flex-nowrap mt-[-38px] md:mt-[-40px] mb-10   '>
 
                 {/* Div for Content */}
@@ -38,7 +42,8 @@ export default function HeroSection() {
                 {/* Seprator */}
                 <div className='mx-auto  min-h-1 mt-16 min-w-80 md:min-w-96 bar rounded-full md:hidden block'></div>
             </div>
-            
+            <OurMission />
+            <OurService />
         </>
     )
 }
