@@ -45,9 +45,9 @@ export default function OurService() {
     return (
         <div className='my-10 bg-slate-100 p-4 pb-10 mb-20'>
             <div className='lg:w-[80%] w-full flex justify-center items-center flex-col lg:mx-auto gap-3 '>
-                <h3 className='text-[#04200E] text-2xl font-bold self-start'>Our services</h3>
-                <h1 className='text-[#04200E] text-3xl md:text-4xl font-bold self-start font-serif'>We're covering all the loan fields</h1>
-                <p className='text-xl  lg:pe-16 mt-5 '>We offer a variety of loan options to meet the diverse needs of small businesses. Our loans are designed to be fast and easy to obtain, with flexible repayment plans and competitive interest rates. Whether you need funds to cover operating expenses, purchase inventory, or invest in equipment, we have a loan solution that's right for you. </p>
+                <h3 className='text-gray-800 text-2xl font-bold self-start'>Our services</h3>
+                <h1 className='text-blue-400 text-3xl md:text-4xl font-bold self-start font-serif'>We're covering all the loan fields</h1>
+                <p className='text-xl  lg:pe-16 mt-5 text-gray-700 '>We offer a variety of loan options to meet the diverse needs of small businesses. Our loans are designed to be fast and easy to obtain, with flexible repayment plans and competitive interest rates. Whether you need funds to cover operating expenses, purchase inventory, or invest in equipment, we have a loan solution that's right for you. </p>
 
                 {/* Cards */}
                 <div className="relative max-w-[340px] sm:max-w-2xl self-center bg-white shadow-2xl my-5  sm:p-5 rounded-sm">
@@ -59,16 +59,16 @@ export default function OurService() {
                                         className='rounded-lg '
                                         src={card.cardImg}
                                         />
-                                    <h2 className='text-2xl md:text-3xl text-[#006738] text-center p-2 mt-1 font-bold font-serif'>{card.heading}</h2>
-                                    <p className='text-md leading-5 text-[#006738] text-left p-2 ps-4 py-2'>{card.text}</p>
+                                    <h2 className='text-2xl md:text-3xl text-blue-400 text-center p-2 mt-1 font-bold font-serif'>{card.heading}</h2>
+                                    <p className='text-md leading-5  text-left p-2 ps-4 py-2'>{card.text}</p>
                                 </div>
                             ))}
                         </div>
                     </div>
-                    <button onClick={prevSlide} className="absolute left-2 top-[58%] sm:top-[55%] transform -translate-y-1/2 bg-slate-200 text-[#006738] rounded-full p-1">
+                    <button onClick={prevSlide} className="absolute left-2 top-[58%] sm:top-[55%] transform -translate-y-1/2 bg-slate-200 text-blue-400 rounded-full p-1">
                         &#10094;
                     </button>
-                    <button onClick={nextSlide} className="absolute right-2 top-[58%] sm:top-[55%] transform -translate-y-1/2 bg-slate-200 text-[#006738] rounded-full p-1">
+                    <button onClick={nextSlide} className="absolute right-2 top-[58%] sm:top-[55%] transform -translate-y-1/2 bg-slate-200 text-blue-400 rounded-full p-1">
                         &#10095;
                     </button>
                 </div>

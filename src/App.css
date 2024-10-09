@@ -1,14 +1,16 @@
-
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
-  min-height: 100%; /* Ensures the page takes at least full viewport height */
+  min-height: 100%;
+  /* Ensures the page takes at least full viewport height */
 }
 
 body {
   display: flex;
   flex-direction: column;
-  overflow: auto; /* This allows scrolling if content overflows */
+  overflow: auto;
+  /* This allows scrolling if content overflows */
   height: auto;
 }
 
@@ -38,21 +40,25 @@ body {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
 
-.bar{
-  background: rgb(0,36,8);
-  background: linear-gradient(90deg, rgba(0,36,8,1) 0%, rgba(10,121,9,1) 30%, rgba(8,219,84,1) 100%, rgba(0,212,255,1) 100%);
+.bar {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 22%, rgba(0, 212, 255, 1) 100%);
 }
 
-#hero{
-  background-image: url('https://images.unsplash.com/photo-1678203699263-917199c725b2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aGVybyUyMGltYWdlfGVufDB8fDB8fHww'); /* Replace with your image URL */
-  background-size: cover; /* Makes the background image cover the entire div */
-  background-position: center; /* Centers the background image */
+#hero {
+  background-image: url('https://images.unsplash.com/photo-1678203699263-917199c725b2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aGVybyUyMGltYWdlfGVufDB8fDB8fHww');
+  /* Replace with your image URL */
+  background-size: cover;
+  /* Makes the background image cover the entire div */
+  background-position: center;
+  /* Centers the background image */
   background-repeat: no-repeat;
 
 }

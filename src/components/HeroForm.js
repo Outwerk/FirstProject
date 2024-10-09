@@ -113,7 +113,7 @@ export default function HeroForm() {
             <main
                 className="flex flex-col items-center justify-start px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-2 xl:col-span-6"
             >
-                <div className='max-w-[620px] ms-2 text-lg font-serif'>Please fill out and submit the form below. Our representative will inform you about other requirements for
+                <div className='max-w-[620px] ms-2 text-lg font-serif text-gray-700 '>Please fill out and submit the form below. Our representative will inform you about other requirements for
                     obtaining an loan policy</div>
 
 
@@ -135,7 +135,7 @@ export default function HeroForm() {
                                 type="text"
                                 id="merchantFullName"
                                 name="merchantFullName"
-                                className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
+                                className="mt-1 w-full rounded-md border border-blue-400 bg-white text-sm text-gray-700 shadow-sm p-1"
                                 required
                             />
                         </div>
@@ -155,7 +155,7 @@ export default function HeroForm() {
                                 type="text"
                                 id="businessLegalName"
                                 name="businessLegalName"
-                                className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
+                                className="mt-1 w-full rounded-md border border-blue-400 bg-white text-sm text-gray-700 shadow-sm p-1"
                                 required
                             />
                         </div>
@@ -178,7 +178,7 @@ export default function HeroForm() {
                                 step="1"
                                 id="amountRequested"
                                 name="amountRequested"
-                                className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
+                                className="mt-1 w-full rounded-md border border-blue-400 bg-white text-sm text-gray-700 shadow-sm p-1"
                                 required
                             />
                         </div>
@@ -198,7 +198,7 @@ export default function HeroForm() {
                                 type="email"
                                 id="email"
                                 name="email"
-                                className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
+                                className="mt-1 w-full rounded-md border border-blue-400 bg-white text-sm text-gray-700 shadow-sm p-1"
                                 required
                             />
                         </div>
@@ -219,7 +219,7 @@ export default function HeroForm() {
                                 type="text"
                                 id="industry"
                                 name="industry"
-                                className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
+                                className="mt-1 w-full rounded-md border border-blue-400 bg-white text-sm text-gray-700 shadow-sm p-1"
                                 required
                             />
                         </div>
@@ -238,7 +238,7 @@ export default function HeroForm() {
                                 type="date"
                                 id="businessStartDate"
                                 name="businessStartDate"
-                                className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm  p-1"
+                                className="mt-1 w-full rounded-md border border-blue-400 bg-white text-sm text-gray-700 shadow-sm  p-1"
                                 required
                             />
                         </div>
@@ -258,7 +258,7 @@ export default function HeroForm() {
                                 type="text"
                                 id="businessAddress"
                                 name="businessAddress"
-                                className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
+                                className="mt-1 w-full rounded-md border border-blue-400 bg-white text-sm text-gray-700 shadow-sm p-1"
                                 required/></div>
 
 
@@ -276,7 +276,7 @@ export default function HeroForm() {
                                 type="text"
                                 id="EIN"
                                 name="EIN"
-                                className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
+                                className="mt-1 w-full rounded-md border border-blue-400 bg-white text-sm text-gray-700 shadow-sm p-1"
                                 required
                             />
                         </div>
@@ -295,7 +295,7 @@ export default function HeroForm() {
                                 type="text"
                                 id="socialSec"
                                 name="socialSec"
-                                className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
+                                className="mt-1 w-full rounded-md border border-blue-400 bg-white text-sm text-gray-700 shadow-sm p-1"
                                 required
                             />
                         </div>
@@ -314,7 +314,7 @@ export default function HeroForm() {
                                 type="date"
                                 id="dateOfBirth"
                                 name="dateOfBirth"
-                                className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
+                                className="mt-1 w-full rounded-md border border-blue-400 bg-white text-sm text-gray-700 shadow-sm p-1"
                                 required
                             />
                         </div>
@@ -333,7 +333,7 @@ export default function HeroForm() {
                                 type="text"
                                 id="purposeOfFunds"
                                 name="purposeOfFunds"
-                                className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
+                                className="mt-1 w-full rounded-md border border-blue-400 bg-white text-sm text-gray-700 shadow-sm p-1"
                                 required
                             />
                         </div>
@@ -351,7 +351,7 @@ export default function HeroForm() {
                                 type="text"
                                 id="homeAddress"
                                 name="homeAddress"
-                                className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
+                                className="mt-1 w-full rounded-md border border-blue-400 bg-white text-sm text-gray-700 shadow-sm p-1"
                                 required
                             />
                         </div>
@@ -369,7 +369,7 @@ export default function HeroForm() {
                                 type="text"
                                 id="ownerShip"
                                 name="ownerShip"
-                                className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
+                                className="mt-1 w-full rounded-md border border-blue-400 bg-white text-sm text-gray-700 shadow-sm p-1"
                                 required
                             />
                         </div>
@@ -388,7 +388,7 @@ export default function HeroForm() {
                                 type="text"
                                 id="contactNo"
                                 name="contactNo"
-                                className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
+                                className="mt-1 w-full rounded-md border border-blue-400 bg-white text-sm text-gray-700 shadow-sm p-1"
                                 required
                             />
                         </div>
@@ -406,7 +406,7 @@ export default function HeroForm() {
                                 type="text"
                                 id="altContactNo"
                                 name="altContactNo"
-                                className="mt-1 w-full rounded-md border border-[#006738] bg-white text-sm text-gray-700 shadow-sm p-1"
+                                className="mt-1 w-full rounded-md border border-blue-400 bg-white text-sm text-gray-700 shadow-sm p-1"
                                 required
                             />
                         </div>
@@ -418,7 +418,7 @@ export default function HeroForm() {
 
 
                             <button
-                                className="inline-block shrink-0 rounded-md border border-[#006738]  px-8 py-1 text-lg font-semibold bg-[#006738] text-[#FFFFFF] transition hover:bg-[#04200E] mt-5 md:mt-0 focus:outline-none focus:ring active:text-blue-500 "
+                                className="bg-blue-400 text-[#FFFFFF] hover:bg-white hover:text-blue-400 hover:outline hover:rounded-sm inline-block shrink-0 rounded-md border  px-8 py-1 text-lg font-semibold   transition  mt-5 md:mt-0 focus:outline-none focus:ring active:text-blue-500 "
                             >
                                 {loader ?
                                     <div className="loader border-t-4 border-b-4 border-white rounded-full w-8 h-8 animate-spin"></div>

@@ -16,13 +16,13 @@ export default function HeroSection() {
                     {/* Bar On heading */}
                     <div className='self-start sm:ms-2 ms-1 min-h-4 mt-32 min-w-80 md:min-w-96 bar rounded-full'></div>
 
-                    <div className='self-start md:self-center me-3 md:me-0 '>
+                    <div className='self-start md:self-center me-3 md:me-0 text-gray-700'>
                         <h1 className='text-4xl sm:text-[80px] leading-none font-semibold'>
-                            Best <span className='text-[#006738] font-bold'>Business Loan <br /></span>for Low Credit Score
+                            Best <span className='text-blue-400 font-bold'>Business Loan <br /></span>for Low Credit Score
                         </h1>
                     </div>
                     <div className='self-start mt-5 md:mt-8 ms-1 md:ms-2 w-full max-w-[500px]'>
-                        <p className='text-lg md:text-2xl break-words leading-relaxed'>
+                        <p className='text-gray-600  text-lg md:text-2xl break-words leading-relaxed'>
                             With our personalized small business loans,<br />
                             you may achieve financial freedom while also fueling
                             the growth of your small business.
@@ -30,7 +30,7 @@ export default function HeroSection() {
                     </div>
 
                     <button
-                        className='ms-0 sm:ms-2 mt-5 md:mt-10 self-start bg-[#006738] text-[#FFFFFF] p-4 px-6 md:p-5 md:px-8 rounded-md text-xl font-bold hover:bg-[#04200E] transition-all duration-300 cursor-pointer'>Let's Get Started</button>
+                        className='bg-blue-400 text-[#FFFFFF] hover:bg-white hover:text-blue-400 hover:outline hover:rounded-sm ms-0 sm:ms-2 mt-5 md:mt-10 self-start  p-4 px-6 md:p-5 md:px-8 rounded-md text-xl font-bold transition-all duration-300 cursor-pointer'>Let's Get Started</button>
                 </div>
 
                 {/* Div for Form */}
