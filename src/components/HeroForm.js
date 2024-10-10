@@ -34,10 +34,11 @@ export default function HeroForm() {
           icon: 'success',
           confirmButtonText: 'Okay',
           customClass: {
+            // icon:"text-blue-400",
             popup: 'bg-white rounded-lg shadow-lg p-4',  
             title: 'text-xl font-bold text-gray-800',  
             content: 'text-gray-700',
-            confirmButton: 'px-12 py-2 bg-[#006738] text-white rounded hover:bg-[#04200E]' 
+            confirmButton: 'px-12 py-2 bg-blue-400 text-white font-semibold rounded hover:bg-blue-500 hover:text-outline hover:outline-white ' 
           }
         });
       };
@@ -56,7 +57,6 @@ export default function HeroForm() {
         });
       };
 
-      
     // Empty Fields 
     function emptyFields() {
   
@@ -75,35 +75,49 @@ export default function HeroForm() {
         setOwnerShip("");
         setContactNo("");
         setAltContactNo("");
-
         setLoader(false)
         
     }
 
     const form = useRef()
 
-    const sendEmail = (e) => {
-        setLoader(true)
+    const sendForm = async (e) => {
+        setLoader(true);
         e.preventDefault();
 
-        emailjs.sendForm('service_2ctpksq', 'template_s2u4eck', form.current, {
-            publicKey: '_PPs8ZgMRarry37fH',
-        })
-            .then(
-                () => {
-                    // console.log('SUCCESS!');
-                    //   console.log(form.current)
-                    emptyFields()
-                    showAlert()
-                },
-                (error) => {
-                    // console.log('FAILED...', error.text);
-                    showErrorAlert()
-                    setLoader(false)
+        const response = await fetch(`https://formsubmit.co/f89088cd6e7c048cd906761c1d946d8f`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                merchantFullName,
+                businessLegalName,
+                amountRequested,
+                email,
+                businessStartDate,
+                industry,
+                buisnessAddress,
+                EIN,
+                socialSec,
+                dateOfBirth,
+                purposeOfFunds,
+                homeAddress,
+                ownerShip,
+                contactNo,
+                altContactNo,
+            }),
+        });
 
-                },
-            );
-    }
+        if (response.ok) {
+            emptyFields();
+            showAlert();
+        } else {
+            showErrorAlert();
+            setLoader(false);
+        }
+    };
 
 
 
@@ -119,7 +133,7 @@ export default function HeroForm() {
 
 
                 <div className="w-full p-1 ">
-                    <form ref={form} onSubmit={sendEmail} className=" mt-2 grid grid-cols-10 gap-5 p-1 ">
+                    <form ref={form} onSubmit={sendForm} className=" mt-2 grid grid-cols-10 gap-5 p-1 ">
                         
                         <div className="col-span-10 sm:col-span-5">
                             <label
@@ -421,7 +435,7 @@ export default function HeroForm() {
                                 className="bg-blue-400 text-[#FFFFFF] hover:bg-white hover:text-blue-400 hover:outline hover:rounded-sm inline-block shrink-0 rounded-md border  px-8 py-1 text-lg font-semibold   transition  mt-5 md:mt-0 focus:outline-none focus:ring active:text-blue-500 "
                             >
                                 {loader ?
-                                    <div className="loader border-t-4 border-b-4 border-white rounded-full w-8 h-8 animate-spin"></div>
+                                    <div className="loader border-t-4 border-b-4 border-white hover:border-blue-400 rounded-full w-8 h-8 animate-spin"></div>
                                     :
                                     <>Submit</>}
 
