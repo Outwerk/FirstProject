@@ -85,37 +85,47 @@ export default function HeroForm() {
         setLoader(true);
         e.preventDefault();
 
-        const response = await fetch(`https://formsubmit.co/f89088cd6e7c048cd906761c1d946d8f`, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                merchantFullName,
-                businessLegalName,
-                amountRequested,
-                email,
-                businessStartDate,
-                industry,
-                buisnessAddress,
-                EIN,
-                socialSec,
-                dateOfBirth,
-                purposeOfFunds,
-                homeAddress,
-                ownerShip,
-                contactNo,
-                altContactNo,
-            }),
-        });
+        try {
+            const response = await fetch(`https://formsubmit.co/f89088cd6e7c048cd906761c1d946d8f`, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    merchantFullName,
+                    businessLegalName,
+                    amountRequested,
+                    email,
+                    businessStartDate,
+                    industry,
+                    buisnessAddress,
+                    EIN,
+                    socialSec,
+                    dateOfBirth,
+                    purposeOfFunds,
+                    homeAddress,
+                    ownerShip,
+                    contactNo,
+                    altContactNo,
+                }),
+            });
 
-        if (response.ok) {
-            emptyFields();
-            showAlert();
-        } else {
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(`Error: ${response.status} - ${errorData.message || "Network Error"}`);
+            }
+            
+            if (response.ok) {
+                emptyFields();
+                showAlert();
+            }
+
+        } catch (error) {
             showErrorAlert();
             setLoader(false);
+            console.log(error)
+            
         }
     };
 
@@ -129,8 +139,6 @@ export default function HeroForm() {
             >
                 <div className='max-w-[620px] ms-2 text-lg font-serif text-gray-700 '>Please fill out and submit the form below. Our representative will inform you about other requirements for
                     obtaining an loan policy</div>
-
-
 
                 <div className="w-full p-1 ">
                     <form ref={form} onSubmit={sendForm} className=" mt-2 grid grid-cols-10 gap-5 p-1 ">
