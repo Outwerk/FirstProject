@@ -74,6 +74,7 @@ export default function HeroForm() {
         setOwnerShip("");
         setContactNo("");
         setAltContactNo("");
+
         setLoader(false)
         
     }
@@ -431,13 +432,12 @@ export default function HeroForm() {
 
 
                             <button
-                                className="bg-blue-400 text-[#FFFFFF] hover:bg-white hover:text-blue-400 hover:outline hover:rounded-sm inline-block shrink-0 rounded-md border  px-8 py-1 text-lg font-semibold   transition  mt-5 md:mt-0 focus:outline-none focus:ring active:text-blue-500 "
+                                className={`bg-blue-400 text-[#FFFFFF] ${!loader && ("hover:bg-white hover:text-blue-400 hover:outline hover:rounded-sm") } inline-block shrink-0 rounded-md border  px-8 py-1 text-lg font-semibold   transition  mt-5 md:mt-0 focus:outline-none focus:ring active:text-blue-500`}
                             >
                                 {loader ?
-                                    <div className="loader border-t-4 border-b-4 border-white hover:border-blue-400 rounded-full w-8 h-8 animate-spin"></div>
+                                    <div className="loader border-t-4 border-b-4 border-white rounded-full w-7 h-8 animate-spin"></div>
                                     :
                                     <>Submit</>}
-
 
                             </button>
                         </div>
