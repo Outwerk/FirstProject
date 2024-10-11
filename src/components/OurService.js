@@ -44,10 +44,10 @@ export default function OurService() {
 
     return (
         <div className='my-10 bg-slate-100 p-4 pb-10 mb-20'>
-            <div className='lg:w-[80%] w-full flex justify-center items-center flex-col lg:mx-auto gap-3 '>
-                <h3 className='text-gray-800 text-2xl font-bold self-start'>Our services</h3>
-                <h1 className='text-blue-400 text-3xl md:text-4xl font-bold self-start font-serif'>We're covering all the loan fields</h1>
-                <p className='text-xl  lg:pe-16 mt-5 text-gray-700 '>We offer a variety of loan options to meet the diverse needs of small businesses. Our loans are designed to be fast and easy to obtain, with flexible repayment plans and competitive interest rates. Whether you need funds to cover operating expenses, purchase inventory, or invest in equipment, we have a loan solution that's right for you. </p>
+            <div className='lg:w-[90%] lg:mx-auto w-full flex justify-center items-center flex-col  gap-3 '>
+                <h3 className='text-gray-800 text-2xl font-bold self-start sm:ms-6 md:ms-0'>Our services</h3>
+                <h1 className='text-blue-400 text-3xl md:text-4xl font-bold self-start font-serif sm:ms-6 md:ms-0'>We're covering all the loan fields</h1>
+                <p className='text-xl  lg:pe-16 mt-5 text-gray-700 sm:ms-6 md:ms-0'>We offer a variety of loan options to meet the diverse needs of small businesses. Our loans are designed to be fast and easy to obtain, with flexible repayment plans and competitive interest rates. Whether you need funds to cover operating expenses, purchase inventory, or invest in equipment, we have a loan solution that's right for you. </p>
 
                 {/* Cards */}
                 <div className="relative max-w-[340px] sm:max-w-2xl self-center bg-white shadow-2xl my-5  sm:p-5 rounded-sm">

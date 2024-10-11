@@ -3,7 +3,6 @@ import React, { useState,} from 'react'
 import Swal from 'sweetalert2';
 
 
-
 export default function HeroForm() {
 
     const [merchantFullName, setMerchantFullName] = useState("")
@@ -134,17 +133,15 @@ export default function HeroForm() {
         }
     };
 
-
-
     return (
         <div className=''>
             <main
                 className="flex flex-col items-center justify-start px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-2 xl:col-span-6"
             >
-                <div className='max-w-[620px] ms-2 text-lg font-serif text-gray-700 '>Please fill out and submit the form below. Our representative will inform you about other requirements for
+                <div className='max-w-[620px]  text-lg font-serif text-gray-700 '>Please fill out and submit the form below. Our representative will inform you about other requirements for
                     obtaining an loan policy</div>
 
-                <div className="w-full p-1 ">
+                <div className="w-full lg:p-1 p-0">
                     <form onSubmit={sendEmail} className=" mt-2 grid grid-cols-10 gap-5 p-1 ">
 
                         <div className="col-span-10 sm:col-span-5">

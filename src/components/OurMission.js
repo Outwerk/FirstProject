@@ -4,15 +4,15 @@ import { FaPhone } from "react-icons/fa";
 
 export default function OurMission() {
   return (
-    <div className=' mx-auto flex justify-center items-center  md:flex-row flex-col md:ms-32 gap-2'>
+    <div className=' mx-auto flex justify-center items-center  md:flex-row flex-col md:ms-24 gap-2'>
                 <div className='flex-1 self-center sm:self-start md:self-center ms-0 sm:ms-8 md:ms-0'>
                     <img src='https://img.freepik.com/premium-photo/business-meeting-with-emplyees_1108314-462194.jpg'
-                        className="lg:w-[90%] w-[90%] m-5  lg:ms-0 rounded-xl "
+                        className="lg:w-[100%] w-[90%] m-5  lg:ms-0 rounded-xl "
                         height="700px"
                     />
                 </div>
  
-                <div className='flex-1 flex flex-col gap-6  md:me-44 p-4 mb-20 ms-0 sm:ms-8 md:ms-0'>
+                <div className='flex-1 flex flex-col gap-6 lg:me-24 lg:ms-5  md:me-44 p-4 mb-20 ms-0 sm:ms-8 md:ms-0 '>
                     <p  className='text-gray700 text-xl font-bold'>About Company</p>
                     <p className='text-gray-700 text-4xl font-bold'>Our Mission</p>
                     <div className='text-blue-400 text-3xl font-semibold pe-16'> Here at <span className="italic font-bold ">Cloud Founding Solutions</span>, we empower businesses and ensure financial prosperity through tailored Commercial loan services. </div>
