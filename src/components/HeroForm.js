@@ -1,6 +1,7 @@
 
-import React, { useState, useRef } from 'react'
+import React, { useState,} from 'react'
 import Swal from 'sweetalert2';
+
 
 
 export default function HeroForm() {
@@ -20,45 +21,47 @@ export default function HeroForm() {
     const [ownerShip, setOwnerShip] = useState("")
     const [contactNo, setContactNo] = useState("")
     const [altContactNo, setAltContactNo] = useState("")
-    
+
     const [loader, setLoader] = useState(false)
 
 
 
-    // Alerts
+    // Success Alert
     const showAlert = () => {
         Swal.fire({
-          title: 'Thank You!',
-          text: 'Your form Has Been Sent Successfully',
-          icon: 'success',
-          confirmButtonText: 'Okay',
-          customClass: {
-            // icon:"text-blue-400",
-            popup: 'bg-white rounded-lg shadow-lg p-4',  
-            title: 'text-xl font-bold text-gray-800',  
-            content: 'text-gray-700',
-            confirmButton: 'px-12 py-2 bg-blue-400 text-white font-semibold rounded hover:bg-blue-500 hover:text-outline hover:outline-white ' 
-          }
+            title: 'Thank You!',
+            text: 'Your form Has Been Sent Successfully',
+            icon: 'success',
+            confirmButtonText: 'Okay',
+            customClass: {
+                // icon:"text-blue-400",
+                popup: 'bg-white rounded-lg shadow-lg p-4',
+                title: 'text-xl font-bold text-gray-800',
+                content: 'text-gray-700',
+                confirmButton: 'px-12 py-2 bg-blue-400 text-white font-semibold rounded hover:bg-blue-500 hover:text-outline hover:outline-white '
+            }
         });
-      };
-      const showErrorAlert = () => {
+    };
+
+    // Error Alert
+    const showErrorAlert = () => {
         Swal.fire({
-          title: 'Error!',
-          text: 'Something went wrong.',
-          icon: 'error',
-          confirmButtonText: 'Try Again',
-          customClass: {
-            popup: 'bg-white rounded-lg shadow-lg p-4',
-            title: 'text-xl font-bold text-red-600', 
-            content: 'text-gray-700', 
-            confirmButton: 'px-12 py-2 bg-red-500 text-white rounded hover:bg-red-600' 
-          }
+            title: 'Error!',
+            text: 'Something went wrong.',
+            icon: 'error',
+            confirmButtonText: 'Try Again',
+            customClass: {
+                popup: 'bg-white rounded-lg shadow-lg p-4',
+                title: 'text-xl font-bold text-red-600',
+                content: 'text-gray-700',
+                confirmButton: 'px-12 py-2 bg-red-500 text-white rounded hover:bg-red-600'
+            }
         });
-      };
+    };
 
     // Empty Fields 
     function emptyFields() {
-  
+
         setMerchantFullName("");
         setBusinessLegalName("");
         setAmountRequested("");
@@ -74,61 +77,62 @@ export default function HeroForm() {
         setOwnerShip("");
         setContactNo("");
         setAltContactNo("");
-
         setLoader(false)
-        
+
     }
 
-    const form = useRef()
+    // FUNCTION to send mail 
+    const sendEmail = (e) => {
 
-    const sendForm = async (e) => {
-        setLoader(true);
-        e.preventDefault();
+        e.preventDefault()
+        setLoader(true)
+        
+        const body = `
+    <h3>Merchant Details</h3>
+    <p><strong>Merchant Full Name:</strong> ${merchantFullName}</p>
+    <p><strong>Business Legal Name:</strong> ${businessLegalName}</p>
+    <p><strong>Amount Requested:</strong> ${amountRequested}</p>
+    <p><strong>Email:</strong> ${email}</p>
+    <p><strong>Business Start Date:</strong> ${businessStartDate}</p>
+    <p><strong>Industry:</strong> ${industry}</p>
+    <p><strong>Business Address:</strong> ${buisnessAddress}</p>
+    <p><strong>EIN:</strong> ${EIN}</p>
+    <p><strong>Social Security:</strong> ${socialSec}</p>
+    <p><strong>Date of Birth:</strong> ${dateOfBirth}</p>
+    <p><strong>Purpose of Funds:</strong> ${purposeOfFunds}</p>
+    <p><strong>Home Address:</strong> ${homeAddress}</p>
+    <p><strong>Ownership:</strong> ${ownerShip}</p>
+    <p><strong>Contact No:</strong> ${contactNo}</p>
+    <p><strong>Alternate Contact No:</strong> ${altContactNo}</p>
+`;
 
-        try {
-            const response = await fetch(`https://formsubmit.co/f89088cd6e7c048cd906761c1d946d8f`, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    merchantFullName,
-                    businessLegalName,
-                    amountRequested,
-                    email,
-                    businessStartDate,
-                    industry,
-                    buisnessAddress,
-                    EIN,
-                    socialSec,
-                    dateOfBirth,
-                    purposeOfFunds,
-                    homeAddress,
-                    ownerShip,
-                    contactNo,
-                    altContactNo,
-                }),
-            });
 
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(`Error: ${response.status} - ${errorData.message || "Network Error"}`);
-            }
-            
-            if (response.ok) {
-                emptyFields();
-                showAlert();
-            }
+        // CONFIG for smtp-JS  with secure Token
+        const config = {
+            SecureToken: "b4f2ab17-40a5-4e52-8658-e2ee8e629dcb",
+            To: 'outows50@gmail.com',
+            From: "outows50@gmail.com",
+            Subject: "Cloud Funding Solution",
+            Body: body,
+            isHtml: true
+        }
 
-        } catch (error) {
-            showErrorAlert();
-            setLoader(false);
-            console.log(error)
-            
+        // Sending Mail
+        if (window.Email) {
+            window.Email.send(config)
+                .then((res) => {
+                    // console.log("submitted Successfully!", res)
+                    emptyFields();
+                    showAlert();
+
+                })
+                .catch((err) => {
+                    console.error('Error sending email:', err);
+                    showErrorAlert();
+                    setLoader(false);
+                })
         }
     };
-
 
 
 
@@ -141,8 +145,8 @@ export default function HeroForm() {
                     obtaining an loan policy</div>
 
                 <div className="w-full p-1 ">
-                    <form ref={form} onSubmit={sendForm} className=" mt-2 grid grid-cols-10 gap-5 p-1 ">
-                        
+                    <form onSubmit={sendEmail} className=" mt-2 grid grid-cols-10 gap-5 p-1 ">
+
                         <div className="col-span-10 sm:col-span-5">
                             <label
                                 htmlFor="merchantFullName"
@@ -265,7 +269,7 @@ export default function HeroForm() {
                             />
                         </div>
 
-                       
+
                         <div className="col-span-10 sm:col-span-7">
                             <label
                                 htmlFor="businessAddress"
@@ -281,7 +285,7 @@ export default function HeroForm() {
                                 id="businessAddress"
                                 name="businessAddress"
                                 className="mt-1 w-full rounded-md border border-blue-400 bg-white text-sm text-gray-700 shadow-sm p-1"
-                                required/></div>
+                                required /></div>
 
 
                         <div className="col-span-10 sm:col-span-3">
@@ -360,7 +364,7 @@ export default function HeroForm() {
                             />
                         </div>
 
-                       <div className="col-span-10 sm:col-span-5">
+                        <div className="col-span-10 sm:col-span-5">
                             <label
                                 htmlFor="homeAddress"
                                 className="block text-md font-medium text-gray-700 "
@@ -378,7 +382,7 @@ export default function HeroForm() {
                             />
                         </div>
 
-                       <div className="col-span-10 sm:col-span-3">
+                        <div className="col-span-10 sm:col-span-3">
                             <label
                                 htmlFor="ownerShip"
                                 className="block text-md font-medium text-gray-700 "
@@ -440,7 +444,7 @@ export default function HeroForm() {
 
 
                             <button
-                                className={`bg-blue-400 text-[#FFFFFF] ${!loader && ("hover:bg-white hover:text-blue-400 hover:outline hover:rounded-sm") } inline-block shrink-0 rounded-md border  px-8 py-1 text-lg font-semibold   transition  mt-5 md:mt-0 focus:outline-none focus:ring active:text-blue-500`}
+                                className={`bg-blue-400 text-[#FFFFFF] ${!loader && ("hover:bg-white hover:text-blue-400 hover:outline hover:rounded-sm")} inline-block shrink-0 rounded-md border  px-8 py-1 text-lg font-semibold   transition  mt-5 md:mt-0 focus:outline-none focus:ring active:text-blue-500`}
                             >
                                 {loader ?
                                     <div className="loader border-t-4 border-b-4 border-white rounded-full w-7 h-8 animate-spin"></div>
@@ -449,7 +453,7 @@ export default function HeroForm() {
 
                             </button>
                         </div>
-                        
+
                     </form>
                 </div>
             </main>
